@@ -54,12 +54,14 @@ in mkHome {
       font = ${preferedFont}
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
     ".bashrc".content = ''
+      export EDITOR=vim
       [ -f $HOME/.localrc ] && source $HOME/.localrc
       eval $(dircolors ${solarizedDirColors}/dircolors.256dark)
     '' + builtins.readFile "${dotfiles}/bashrc";
     ".zshrc".content = let
       plugins = zshPlugins ++ optionals zshViMode [ "vi-like" "vi-mode" ];
     in ''
+      export EDITOR=vim
       [ -f $HOME/.localrc ] && source $HOME/.localrc
       eval $(dircolors ${solarizedDirColors}/dircolors.ansi-dark)
 
