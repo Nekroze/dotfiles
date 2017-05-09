@@ -23,6 +23,7 @@ let
   ];
   zshAutojump = true;
   preferedFont = "Source Code Pro 10";
+  vifmTheme = "solarized-dark";
   ## Repositories
   termiteSolarized = fetchgit {
     url = "https://github.com/alpha-omega/termite-colors-solarized.git";
@@ -38,6 +39,11 @@ let
     url = "https://github.com/seebi/dircolors-solarized.git";
     rev = "71dbfd5ea3e39b41977df36a61bedc5f9374d47e";
     sha256 = "0v779ig3kcd64zymjvxk6gigawqbznq3z1ckm604511jqigm1mdi";
+  };
+  vifmColors = fetchgit {
+    url = "https://github.com/vifm/vifm-colors.git";
+    rev = "235f9e8728810cfa6c0e07974dbd72ac9158f745";
+    sha256 = "0yn9d4ra77ky2hba34d2dccfcmbjk31gp6xkd3g8zv3621kpijfy";
   };
   dotfiles = ./dotfiles;
 in mkHome {
@@ -67,6 +73,10 @@ in mkHome {
       plugins=(${concatStringsSep " " plugins})
 
       source $ZSH/oh-my-zsh.sh
+    '';
+    ".config/vifm/colors" = vifmColors;
+    ".config/vifm/vifmrc".content = ''
+      colorscheme ${vifmTheme}
     '';
     ".vim/autoload/plug.vim" = "${vimPlug}/plug.vim";
     ".vimrc" = "${dotfiles}/vimrc";
