@@ -1,0 +1,9 @@
+[user]
+	name = Taylor Lawson
+	email = taylorl@benon.com
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
