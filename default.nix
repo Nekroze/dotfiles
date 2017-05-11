@@ -93,6 +93,7 @@ in mkHome {
       rofi.color-urgent: #002b37, #da4281, #003643, #008ed4, #890661
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
+    ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
     ".config/vifm/vifmrc".content = ''
       colorscheme ${vifmTheme}
     '';
