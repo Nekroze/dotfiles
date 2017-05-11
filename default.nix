@@ -40,6 +40,11 @@ let
     rev = "71dbfd5ea3e39b41977df36a61bedc5f9374d47e";
     sha256 = "0v779ig3kcd64zymjvxk6gigawqbznq3z1ckm604511jqigm1mdi";
   };
+  zshSyntaxHighlighting = fetchgit {
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git";
+    rev = "ad522a091429ba180c930f84b2a023b40de4dbcc";
+    sha256 = "0vncgzyb0z470i2jz3997fx41h71nq6sp47qrg6w8x0y8frivvrd";
+  };
   vifmColors = fetchgit {
     url = "https://github.com/vifm/vifm-colors.git";
     rev = "235f9e8728810cfa6c0e07974dbd72ac9158f745";
@@ -63,6 +68,9 @@ in mkHome {
       plugins = zshPlugins ++ optionals zshViMode [ "vi-like" "vi-mode" ];
     in ''
       export EDITOR=vim
+      if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/r/xterm-termite" ]; then
+        export TERM='xterm-256color'
+      fi
       [ -f $HOME/.localrc ] && source $HOME/.localrc
       eval $(dircolors ${solarizedDirColors}/dircolors.ansi-dark)
 
@@ -76,6 +84,7 @@ in mkHome {
       plugins=(${concatStringsSep " " plugins})
 
       source $ZSH/oh-my-zsh.sh
+      source ${zshSyntaxHighlighting}/zsh-syntax-highlighting.zsh
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
