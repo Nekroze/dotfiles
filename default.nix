@@ -22,7 +22,7 @@ let
     "history-substring-search"
   ];
   zshAutojump = true;
-  preferedFont = "Source Code Pro 10";
+  preferedFont = "Source Code Pro";
   vifmTheme = "solarized-dark";
   ## Repositories
   termiteSolarized = fetchgit {
@@ -40,6 +40,11 @@ let
     rev = "71dbfd5ea3e39b41977df36a61bedc5f9374d47e";
     sha256 = "0v779ig3kcd64zymjvxk6gigawqbznq3z1ckm604511jqigm1mdi";
   };
+  solarizedXresources = fetchgit {
+    url = "https://github.com/solarized/xresources.git";
+    rev = "025ceddbddf55f2eb4ab40b05889148aab9699fc";
+    sha256 = "0lxv37gmh38y9d3l8nbnsm1mskcv10g3i83j0kac0a2qmypv1k9f";
+  };
   zshSyntaxHighlighting = fetchgit {
     url = "https://github.com/zsh-users/zsh-syntax-highlighting.git";
     rev = "ad522a091429ba180c930f84b2a023b40de4dbcc";
@@ -56,7 +61,7 @@ in mkHome {
   files = {
     ".config/termite/config".content = ''
       [options]
-      font = ${preferedFont}
+      font = ${preferedFont} 10
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
     ".bashrc".content = ''
       export EDITOR=vim
@@ -92,7 +97,7 @@ in mkHome {
       rofi.color-normal: #002b37, #819396, #003643, #008ed4, #ffffff
       rofi.color-active: #002b37, #008ed4, #003643, #008ed4, #66c6ff
       rofi.color-urgent: #002b37, #da4281, #003643, #008ed4, #890661
-    '';
+    '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
     ".config/vifm/vifmrc".content = ''
       colorscheme ${vifmTheme}
