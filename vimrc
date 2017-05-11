@@ -3,40 +3,30 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
-
-Plug 'vim-scripts/sudo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-syntastic/syntastic'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
-"Plug 'pangloss/vim-javascript'
-"Plug 'othree/html5.vim'
 Plug 'lumiliet/vim-twig'
 Plug 'LnL7/vim-nix'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'shawncplus/phpcomplete.vim'
-"Plug 'joonty/vim-phpqa.git'
-"Plug 'ervandrew/supertab'
-"Plug 'Valloric/YouCompleteMe'
 Plug 'mustache/vim-mustache-handlebars'
-"Plug 'shougo/neocomplete.vim'
 Plug 'raimondi/delimitmate'
-"Plug 'craigemery/vim-autotag'
-"Plug 'roxma/simpleautocomplpop'
-"Plug 'majutsushi/tagbar'
-"Plug 'vim-php/tagbar-phpctags.vim'
-Plug 'vim-php/phpctags', { 'for': 'php' }
-Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+if executable("ctags")
+    Plug 'craigemery/vim-autotag'
+    Plug 'vim-php/phpctags', { 'for': 'php' }
+endif
+if filereadable(expand("$HOME/.local/bin/refactor.phar"))
+    Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+endif
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'vimwiki/vimwiki'
 Plug 'veloce/vim-behat'
-Plug 'wikitopian/hardmode'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'ajh17/VimCompletesMe'
+if $TERM=~#"^tmux.*"
+    Plug 'christoomey/vim-tmux-navigator'
+endif
 Plug 'elmcast/elm-vim'
 
 call plug#end()
@@ -49,12 +39,9 @@ set tabstop=4 shiftwidth=4
 set autoindent
 set fileformat=unix
 set ignorecase
-"set laststatus=2
 set showmode
 set showcmd
 set ruler
-"set list
-"set listchars=tab:»·,trail:·,extends:>,precedes:<
 set matchpairs+=<:>
 
 
@@ -73,7 +60,6 @@ endif
 
 filetype plugin on
 
-" autocmd BufRead *.html set syntax=pt " for Benon::Template
 autocmd BufRead /etc/* set tabstop=8 shiftwidth=8
 autocmd BufRead /var/named/* set tabstop=8 shiftwidth=8
 autocmd BufRead /www/conf/* set tabstop=8 shiftwidth=8
@@ -95,8 +81,6 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:syntastic_php_checkers=['php', 'phpcs']
-"let g:syntastic_php_checkers=['php']
-let g:syntastic_php_phpcs_args='--standard=/home/taylorl/dev/www/bin/phpcs/Jumbo/ruleset.xml -n'
 let g:syntastic_check_on_open = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -104,6 +88,7 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 
 set tags=./ctags;/
+let g:autotagTagsFile="ctags"
 let g:ycm_semantic_triggers =  {
   \   'c' : ['->', '.'],
   \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
@@ -118,8 +103,6 @@ let g:ycm_semantic_triggers =  {
   \   'erlang' : [':'],
   \ }
 set hlsearch
-"set completeopt+=menu,menuone
-"set shortmess+=c
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap <leader>. :CtrlPTag<cr>
 
@@ -128,57 +111,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
-"" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-"" Use neocomplete.
-"let g:neocomplete#enable_at_startup = 1
-"" Use smartcase.
-"let g:neocomplete#enable_smart_case = 1
-"" Set minimum syntax keyword length.
-"let g:neocomplete#sources#syntax#min_keyword_length = 3
-"
-"" Define dictionary.
-"let g:neocomplete#sources#dictionary#dictionaries = {
-"    \ 'default' : '',
-"    \ 'vimshell' : $HOME.'/.vimshell_hist',
-"    \ 'scheme' : $HOME.'/.gosh_completions'
-"        \ }
-"
-"" Define keyword.
-"if !exists('g:neocomplete#keyword_patterns')
-"    let g:neocomplete#keyword_patterns = {}
-"endif
-""let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-"let g:neocomplete#keyword_patterns['default'] = '[^. \t]->\h\w*\|\h\w*::|\$\h\w*'
-"
-"" Plugin key-mappings.
-"inoremap <expr><C-g>     neocomplete#undo_completion()
-"inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-"  " For no inserting <CR> key.
-"  "return pumvisible() ? "\<C-y>" : "\<CR>"
-"endfunction
-" <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -189,28 +121,17 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 let php_sql_query=1
 let php_htmlInStrings=1
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" Enable heavy omni completion.
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
 let g:feature_filetype='behat'
 
 " Disable : and replace with ; allowing ; via double tapping ; like ;;
 map ; :
 noremap ;; ;
 
-" TRAINING MODE
-let g:HardMode_level='wannabe'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
 set relativenumber
 
-let g:php_refactor_command='php ~/.local/bin/refactor.phar'
+if filereadable(expand("$HOME/.local/bin/refactor.phar"))
+    let g:php_refactor_command='php ~/.local/bin/refactor.phar'
+endif
 " map CTRL \ to open definition in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " map ALT ] to open definition in vertical split
@@ -226,3 +147,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
+
+if filereadable(expand("$HOME/.vimrc.local"))
+    source ~/.vimrc.local
+endif
