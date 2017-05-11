@@ -63,12 +63,6 @@ in mkHome {
       [options]
       font = ${preferedFont} 10
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
-    ".bashrc".content = ''
-      export EDITOR=vim
-      [ -f $HOME/.localrc ] && source $HOME/.localrc
-      eval $(dircolors ${solarizedDirColors}/dircolors.256dark)
-      PS1="\`if [ \$? = 0 ]; then echo \[\e[33m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`[\u@\h:\w]\\$ "
-    '' + builtins.readFile "${dotfiles}/bashrc";
     ".zshrc".content = let
       plugins = zshPlugins ++ optionals zshViMode [ "vi-like" "vi-mode" ];
     in ''
