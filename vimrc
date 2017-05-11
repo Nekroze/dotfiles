@@ -37,6 +37,7 @@ Plug 'veloce/vim-behat'
 Plug 'wikitopian/hardmode'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ajh17/VimCompletesMe'
+Plug 'elmcast/elm-vim'
 
 call plug#end()
 filetype plugin indent on
@@ -219,3 +220,9 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set foldmethod=indent
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+
+let g:elm_format_autosave = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
