@@ -9,7 +9,6 @@
 
 * [zsh](https://www.zsh.org)
 	* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-	* [direnv](http://direnv.net/)
 	* [autojump](http://wiki.github.com/joelthelion/autojump)
 * [termite](https://github.com/thestinger/termite/)
 * [vim](http://www.vim.org/)

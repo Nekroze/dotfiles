@@ -72,7 +72,6 @@ in mkHome {
       fi
       [ -f $HOME/.localrc ] && source $HOME/.localrc
       eval $(dircolors ${solarizedDirColors}/dircolors.ansi-dark)
-      eval $(${direnv}/bin/direnv hook zsh)
 
       ${optionalString zshAutojump "source ${autojump}/share/autojump/autojump.zsh"}
 
