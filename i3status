@@ -6,7 +6,6 @@ general {
 order += "volume master"
 order += "disk /"
 order += "ethernet enp0s31f6"
-order += "cpu_temperature 0"
 order += "load"
 order += "tztime local"
 order += "tztime local_date"
@@ -27,12 +26,7 @@ tztime local {
 }
 
 load {
-        format = "L: %5min"
-}
-
-cpu_temperature 0 {
-        format = "T: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+        format = "L: %1min"
 }
 
 disk "/" {
