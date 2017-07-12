@@ -31,6 +31,11 @@ let
     rev = "235f9e8728810cfa6c0e07974dbd72ac9158f745";
     sha256 = "0yn9d4ra77ky2hba34d2dccfcmbjk31gp6xkd3g8zv3621kpijfy";
   };
+  vimperatorColors = fetchgit {
+    url = "https://github.com/vimpr/vimperator-colors.git";
+    rev = "e4e7809d332c53b4c26d5f8e8b396e6b9d2fcd03";
+    sha256 = "0c83dliy842vlyjqsmcgm7592jkvlf3maim9xznkw3196qinv3yk";
+  };
   dotfiles = ./dotfiles;
 in mkHome {
   user = "taylorl";
@@ -66,5 +71,6 @@ in mkHome {
     ".gitignore" = "${dotfiles}/gitignore";
     ".tmux.conf" = "${dotfiles}/tmux.conf";
     ".multitailrc" = "${dotfiles}/multitailrc";
+    ".vimperator/colors" = vimperatorColors;
   };
 }
