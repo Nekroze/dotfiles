@@ -36,6 +36,11 @@ let
     rev = "6b67295c6dbafdd41d954a96d2392f9259a8a6c4";
     sha256 = "0ai7iy5grngqmz6376ivdngl3l91kg9ml09qbj41fv7iyrxs25bs";
   };
+  zshNotify = fetchgit {
+    url = "https://github.com/marzocchi/zsh-notify.git";
+    rev = "43450c899d5e8697c886791b637d432c0665900e";
+    sha256 = "1g8b1qgyw665xhwq8nbmsqfrwnb45bmbbfyrh86n6riyf0py80j2";
+  };
   dotfiles = ./dotfiles;
 in mkHome {
   user = "taylorl";
@@ -51,6 +56,7 @@ in mkHome {
       fi
       [ -f $HOME/.localrc ] && source $HOME/.localrc
       eval $(dircolors ${solarizedDirColors}/dircolors.ansi-dark)
+      source ${zshNotify}/notify.plugin.zsh
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
