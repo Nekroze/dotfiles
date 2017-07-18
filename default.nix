@@ -37,9 +37,9 @@ let
     sha256 = "0ai7iy5grngqmz6376ivdngl3l91kg9ml09qbj41fv7iyrxs25bs";
   };
   zshNotify = fetchgit {
-    url = "https://github.com/marzocchi/zsh-notify.git";
-    rev = "43450c899d5e8697c886791b637d432c0665900e";
-    sha256 = "1g8b1qgyw665xhwq8nbmsqfrwnb45bmbbfyrh86n6riyf0py80j2";
+    url = "https://github.com/t413/zsh-background-notify.git";
+    rev = "d5f0430cb052f82c433c17707816910da87e201e";
+    sha256 = "0p8fk50bxr8kg2v72afg7f2n09n9ap0yn7gz1i78nd54l0wc041n";
   };
   dotfiles = ./dotfiles;
 in mkHome {
@@ -56,7 +56,13 @@ in mkHome {
       fi
       [ -f $HOME/.localrc ] && source $HOME/.localrc
       eval $(dircolors ${solarizedDirColors}/dircolors.ansi-dark)
-      source ${zshNotify}/notify.plugin.zsh
+
+      function notify_formatted {
+        ## $1=exit_status, $2=command, $3=elapsed_time
+        [ $1 -eq 0 ] && title="Victory!" || title="Asploded!"
+        notify-send "$title -- after $3 s" "$2";
+      }
+      source ${zshNotify}/bgnotify.plugin.zsh
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
