@@ -152,3 +152,6 @@ let g:elm_syntastic_show_warnings = 1
 if filereadable(expand("$HOME/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+vnoremap <silent> # :s/^/#/<cr>:noh<cr>
+vnoremap <silent> -# :s/^#//<cr>:noh<cr>
