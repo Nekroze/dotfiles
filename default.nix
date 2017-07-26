@@ -62,6 +62,7 @@ in mkHome {
         [ $1 -eq 0 ] && title="Victory!" || title="Asploded!"
         notify-send "$title -- after $3 s" "$2";
       }
+      bgnotify_threshold=10
       source ${zshNotify}/bgnotify.plugin.zsh
     '';
     ".Xresources".content = ''
