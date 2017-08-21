@@ -25,6 +25,7 @@ if filereadable(expand("$HOME/.local/bin/refactor.phar"))
 endif
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'veloce/vim-behat'
+Plug 'elixir-lang/vim-elixir'
 if $TERM=~#"^tmux.*"
     Plug 'christoomey/vim-tmux-navigator'
 endif
