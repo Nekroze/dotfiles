@@ -48,7 +48,10 @@ set matchpairs+=<:>
 
 set t_Co=256
 set background=dark
-colorscheme solarized
+try
+  colorscheme solarized
+catch /^Vim\%((\a\+)\)\=:E185/
+endtry
 hi Normal ctermbg=none
 
 if has('gui_running')
