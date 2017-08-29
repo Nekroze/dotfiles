@@ -132,7 +132,7 @@ let g:feature_filetype='behat'
 map ; :
 noremap ;; ;
 
-set relativenumber
+"set relativenumber
 
 if filereadable(expand("$HOME/.local/bin/refactor.phar"))
     let g:php_refactor_command='php ~/.local/bin/refactor.phar'
