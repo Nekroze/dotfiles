@@ -64,8 +64,8 @@ in mkHome {
       }
       bgnotify_threshold=10
       source ${zshNotify}/bgnotify.plugin.zsh
-      export GOPATH="~/go"
-      export PATH="$PATH:~/go/bin"
+      export GOPATH="$HOME/go"
+      export PATH="$PATH:$GOPATH/bin"
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
