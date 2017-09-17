@@ -30,6 +30,7 @@ if $TERM=~#"^tmux.*"
     Plug 'christoomey/vim-tmux-navigator'
 endif
 Plug 'elmcast/elm-vim'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 filetype plugin indent on
