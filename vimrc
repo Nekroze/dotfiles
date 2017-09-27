@@ -33,6 +33,8 @@ Plug 'elmcast/elm-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'majutsushi/tagbar'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'NLKNguyen/vim-docker-compose-syntax'
 
 call plug#end()
 filetype plugin indent on
