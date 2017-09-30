@@ -160,3 +160,7 @@ endif
 
 vnoremap <silent> # :s/^/#/<cr>:noh<cr>
 vnoremap <silent> -# :s/^#//<cr>:noh<cr>
+
+if executable("goimports")
+    let g:go_fmt_command = "goimports"
+endif
