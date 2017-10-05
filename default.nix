@@ -18,8 +18,8 @@ let
   };
   solarizedDirColors = fetchgit {
     url = "https://github.com/seebi/dircolors-solarized.git";
-    rev = "71dbfd5ea3e39b41977df36a61bedc5f9374d47e";
-    sha256 = "0v779ig3kcd64zymjvxk6gigawqbznq3z1ckm604511jqigm1mdi";
+    rev = "2720cb1ff508bc358f9414f63370f0c6cd767b98";
+    sha256 = "1mk7d7l6v4vfgkp3005533yd4gldm07cjqmqs6fxzwjjwj7l5qbf";
   };
   solarizedXresources = fetchgit {
     url = "https://github.com/solarized/xresources.git";
