@@ -157,12 +157,17 @@ let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
 
-if filereadable(expand("$HOME/.vimrc.local"))
-    source ~/.vimrc.local
+if executable("goimports")
+    autocmd BufWritePost *.go GoImports
 endif
+let g:go_fmt_options = '-s'
 
 vnoremap <silent> # :s/^/#/<cr>:noh<cr>
 vnoremap <silent> -# :s/^#//<cr>:noh<cr>
+
+if filereadable(expand("$HOME/.vimrc.local"))
+    source ~/.vimrc.local
+endif
 
 if executable("goimports")
     let g:go_fmt_command = "goimports"
