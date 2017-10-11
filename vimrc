@@ -34,6 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/vim-docker-compose-syntax'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 filetype plugin indent on
@@ -161,6 +162,7 @@ if executable("goimports")
     autocmd BufWritePost *.go GoImports
 endif
 let g:go_fmt_options = '-s'
+let g:UltiSnipsExpandTrigger="<C-j>"
 
 vnoremap <silent> # :s/^/#/<cr>:noh<cr>
 vnoremap <silent> -# :s/^#//<cr>:noh<cr>
