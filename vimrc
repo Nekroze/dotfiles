@@ -42,7 +42,6 @@ filetype plugin indent on
 
 syntax enable
 let g:is_posix=1
-set number
 set tabstop=4 shiftwidth=4
 set autoindent
 set fileformat=unix
@@ -138,7 +137,13 @@ let g:feature_filetype='behat'
 map ; :
 noremap ;; ;
 
-set relativenumber
+" Smart Relative lineno and absolute in insert mode
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 if filereadable(expand("$HOME/.local/bin/refactor.phar"))
     let g:php_refactor_command='php ~/.local/bin/refactor.phar'
