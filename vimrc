@@ -35,6 +35,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/vim-docker-compose-syntax'
 Plug 'SirVer/ultisnips'
+Plug 'yuratomo/w3m.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -137,7 +138,7 @@ let g:feature_filetype='behat'
 map ; :
 noremap ;; ;
 
-"set relativenumber
+set relativenumber
 
 if filereadable(expand("$HOME/.local/bin/refactor.phar"))
     let g:php_refactor_command='php ~/.local/bin/refactor.phar'
@@ -151,6 +152,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set foldmethod=indent
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+set nofoldenable
 
 let g:elm_format_autosave = 1
 let g:syntastic_always_populate_loc_list = 1
@@ -209,3 +211,6 @@ if executable("ocamlmerlin")
     let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
 endif
+
+let g:w3m#homepage = "https://duckduckgo.com/"
+let g:w3m#search_engine = 'https://duckduckgo.com/?q='
