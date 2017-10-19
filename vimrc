@@ -36,6 +36,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/vim-docker-compose-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'yuratomo/w3m.vim'
+Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
 
 call plug#end()
 filetype plugin indent on

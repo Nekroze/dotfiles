@@ -105,6 +105,7 @@ in mkHome {
     ".gitignore" = "${dotfiles}/gitignore";
     ".tmux.conf" = "${dotfiles}/tmux.conf";
     ".multitailrc" = "${dotfiles}/multitailrc";
+    ".elvish/rc.elv" = "${dotfiles}/rc.elv";
     ".vimperator/colors" = "${vimperatorSolarized}/colors";
     ".vimperatorrc".content = "colorscheme solarized-dark";
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
