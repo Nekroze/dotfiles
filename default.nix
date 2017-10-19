@@ -85,6 +85,7 @@ in mkHome {
       function df_download() {
         rsync -avh ~/keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data
       }
+      export PATH="$PATH:$HOME/.bin"
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
