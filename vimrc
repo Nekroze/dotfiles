@@ -3,17 +3,17 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-syntastic/syntastic'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
-Plug 'lumiliet/vim-twig'
+Plug 'lumiliet/vim-twig', { 'for': 'twig' }
 Plug 'LnL7/vim-nix'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'raimondi/delimitmate'
 Plug 'robbles/logstash.vim'
 if executable("ctags")
@@ -37,6 +37,7 @@ Plug 'NLKNguyen/vim-docker-compose-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'yuratomo/w3m.vim'
 Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
+Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
 
 call plug#end()
 filetype plugin indent on
@@ -98,8 +99,8 @@ let g:syntastic_auto_loc_list = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 
-set tags=./ctags;/
-let g:autotagTagsFile="ctags"
+set tags=./tags;/
+let g:autotagTagsFile="tags"
 let g:ycm_semantic_triggers =  {
   \   'c' : ['->', '.'],
   \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
