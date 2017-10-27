@@ -3,6 +3,7 @@
 	email = taylorl@benon.com
 [core]
 	editor = vim
+    excludesfile = /home/taylorl/.gitignore
 [diff]
 	tool = vimdiff
 [difftool]
@@ -11,4 +12,3 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [include]
     path = /home/taylorl/.local.gitconfig
-    excludesfile = /home/taylorl/.gitignore
