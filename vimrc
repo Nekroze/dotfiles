@@ -31,7 +31,7 @@ if $TERM=~#"^tmux.*"
 endif
 Plug 'elmcast/elm-vim'
 Plug 'hashivim/vim-terraform'
-Plug 'majutsushi/tagbar
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 filetype plugin indent on
