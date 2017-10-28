@@ -41,6 +41,11 @@ let
     rev = "d5f0430cb052f82c433c17707816910da87e201e";
     sha256 = "0p8fk50bxr8kg2v72afg7f2n09n9ap0yn7gz1i78nd54l0wc041n";
   };
+  vimDsnips = fetchgit {
+    url = "https://github.com/kiith-sa/DSnips.git";
+    rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
+    sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
+  };
   dotfiles = ./dotfiles;
 in mkHome {
   user = "taylorl";
@@ -66,6 +71,14 @@ in mkHome {
       source ${zshNotify}/bgnotify.plugin.zsh
       export GOPATH="$HOME/go"
       export PATH="$PATH:$GOPATH/bin"
+      if command -v dub >/dev/null 2>&1; then
+        ls ~/.dub/packages/dcd-* || dub fetch dcd
+        ls ~/.dub/packages/dscanner* || dub fetch dscanner
+        ls ~/.dub/packages/dfmt* || dub fetch dfmt
+      fi
+      if command -v opam >/dev/null 2>&1; then
+        source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+      fi
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
@@ -88,5 +101,6 @@ in mkHome {
     ".multitailrc" = "${dotfiles}/multitailrc";
     ".vimperator/colors" = "${vimperatorSolarized}/colors";
     ".vimperatorrc".content = "colorscheme solarized-dark";
+    ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
   };
 }

@@ -195,3 +195,8 @@ if executable("gotags")
         \ 'ctagsargs' : '-sort -silent'
     \ }
 endif
+
+if executable("ocamlmerlin")
+    let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+    execute "set rtp+=" . g:opamshare . "/merlin/vim"
+endif
