@@ -72,9 +72,9 @@ in mkHome {
       export GOPATH="$HOME/go"
       export PATH="$PATH:$GOPATH/bin"
       if command -v dub >/dev/null 2>&1; then
-        ls ~/.dub/packages/dcd-* || dub fetch dcd
-        ls ~/.dub/packages/dscanner* || dub fetch dscanner
-        ls ~/.dub/packages/dfmt* || dub fetch dfmt
+        ls ~/.dub/packages/dcd-* >/dev/null 2>&1 || dub fetch dcd
+        ls ~/.dub/packages/dscanner* >/dev/null 2>&1 || dub fetch dscanner
+        ls ~/.dub/packages/dfmt* >/dev/null 2>&1 || dub fetch dfmt
       fi
       if command -v opam >/dev/null 2>&1; then
         source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
