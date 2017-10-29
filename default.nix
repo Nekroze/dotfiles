@@ -89,6 +89,7 @@ in mkHome {
       function dtox() {
         docker run --rm -it -v $PWD:/src:ro realcundo/dtox
       }
+      [ "$IN_NIX_SHELL" ] && export PS1="nix-shell@$PS1"
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
