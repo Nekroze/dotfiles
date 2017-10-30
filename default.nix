@@ -79,8 +79,12 @@ in mkHome {
       if command -v opam >/dev/null 2>&1; then
         source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
       fi
-      alias df_save="rsync -avh ~/.local/share/df_linux/data/save keybase/private/nekroze/df_saves"
-      alias df_load="rsync -avh keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data"
+      function df_upload() {
+        rsync -avh ~/.local/share/df_linux/data/save ~/keybase/private/nekroze/df_saves
+      }
+      function df_download() {
+        rsync -avh ~/keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data
+      }
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
