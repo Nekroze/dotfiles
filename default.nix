@@ -45,6 +45,10 @@ let
     url = "https://github.com/kiith-sa/DSnips.git";
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
+  gtkSolarized = fetchgit {
+    url = "https://github.com/jankotek/solarized-dark-gtk.git";
+    rev = "2b7f60abad69e3abe4354e334af608399bdf895e";
+    sha256 = "197i9r733747wpzdjrnj5v767ahdl4qdamkqnicrs7h5xkawpc46";
   };
   dotfiles = ./dotfiles;
 in mkHome {
@@ -111,5 +115,6 @@ in mkHome {
     ".vimperator/colors" = "${vimperatorSolarized}/colors";
     ".vimperatorrc".content = "colorscheme solarized-dark";
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
+    ".themes/solarized-dark-gtk" = gtkSolarized;
   };
 }
