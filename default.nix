@@ -86,9 +86,6 @@ in mkHome {
         rsync -avh ~/keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data
       }
       export PATH="$PATH:$HOME/.bin"
-      function dtox() {
-        docker run --rm -it -v $PWD:/src:ro realcundo/dtox
-      }
       [ "$IN_NIX_SHELL" ] && export PS1="nix-shell@$PS1"
     '';
     ".Xresources".content = ''
