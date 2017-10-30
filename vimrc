@@ -221,3 +221,5 @@ endif
 
 let g:w3m#homepage = "https://duckduckgo.com/"
 let g:w3m#search_engine = 'https://duckduckgo.com/?q='
+
+autocmd BufRead,BufNewFile   *.py set tabstop=4 shiftwidth=4
