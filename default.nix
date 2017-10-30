@@ -90,6 +90,8 @@ in mkHome {
         rsync -avh ~/keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data
       }
       export PATH="$PATH:$HOME/.bin"
+      export WORKON_HOME=$HOME/.pyvenvs
+      mkdir -p $WORKON_HOME
       [ "$IN_NIX_SHELL" ] && export PS1="nix-shell@$PS1"
     '';
     ".Xresources".content = ''
