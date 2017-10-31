@@ -38,6 +38,10 @@ Plug 'SirVer/ultisnips'
 Plug 'yuratomo/w3m.vim'
 Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+if executable("flake8")
+    Plug 'nvie/vim-flake8'
+endif
 
 call plug#end()
 filetype plugin indent on
@@ -222,4 +226,17 @@ endif
 let g:w3m#homepage = "https://duckduckgo.com/"
 let g:w3m#search_engine = 'https://duckduckgo.com/?q='
 
-autocmd BufRead,BufNewFile   *.py set tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+set encoding=utf-8
+let g:ycm_autoclose_preview_window_after_completion=1
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+let python_highlight_all=1
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
