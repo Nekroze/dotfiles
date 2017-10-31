@@ -42,7 +42,7 @@ Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 if executable("flake8")
     Plug 'nvie/vim-flake8'
 endif
-Plug 'python-mode/python-mode'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 filetype plugin indent on
@@ -241,3 +241,5 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 let python_highlight_all=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+set list lcs=tab:\|\ 
+
