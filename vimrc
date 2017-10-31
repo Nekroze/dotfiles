@@ -42,6 +42,7 @@ Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 if executable("flake8")
     Plug 'nvie/vim-flake8'
 endif
+Plug 'python-mode/python-mode'
 
 call plug#end()
 filetype plugin indent on
