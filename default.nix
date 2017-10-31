@@ -85,10 +85,10 @@ in mkHome {
         source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
       fi
       function df_upload() {
-        rsync -avh ~/.local/share/df_linux/data/save ~/keybase/private/nekroze/df_saves
+        rsync --delete -avh ~/.local/share/df_linux/data/save ~/keybase/private/nekroze/df_saves
       }
       function df_download() {
-        rsync -avh ~/keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data
+        rsync --delete -avh ~/keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data
       }
       export PATH="$PATH:$HOME/.bin"
       export WORKON_HOME=$HOME/.pyvenvs
