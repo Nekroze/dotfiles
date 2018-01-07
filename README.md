@@ -23,10 +23,14 @@
 
 This repo is designed for [nix-home](https://github.com/sheenobu/nix-home) but can be used without it.
 
+```
+ $ nix-env -f nix-home.nix -i nix-home
+```
+
 Link `default.nix` to your home directory like so:
 
 ```
- $ ln -s default.nix ~/default.nix
+ $ ln -s $PWD/default.nix ~/default.nix
 ```
 
 Then rebuild with nix-home when this repo is updated
