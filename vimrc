@@ -35,6 +35,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/vim-docker-compose-syntax'
 Plug 'SirVer/ultisnips'
+Plug 'myusuf3/numbers.vim'
 Plug 'yuratomo/w3m.vim'
 Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
 Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
@@ -143,14 +144,6 @@ let g:feature_filetype='behat'
 " Disable : and replace with ; allowing ; via double tapping ; like ;;
 map ; :
 noremap ;; ;
-
-" Smart Relative lineno and absolute in insert mode
-set number relativenumber
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
 
 if filereadable(expand("$HOME/.local/bin/refactor.phar"))
     let g:php_refactor_command='php ~/.local/bin/refactor.phar'
