@@ -52,6 +52,14 @@ let
     sha256 = "197i9r733747wpzdjrnj5v767ahdl4qdamkqnicrs7h5xkawpc46";
   };
   dotfiles = ./dotfiles;
+  mkDesktop = name: exec: ''
+    [Desktop Entry]
+    Type=Application
+    Encoding=UTF-8
+    Name=${name}
+    Exec=${exec}
+    Terminal=false
+  '';
 in mkHome {
   user = "taylorl";
   files = {
@@ -119,5 +127,6 @@ in mkHome {
     ".vimperatorrc".content = "colorscheme solarized-dark";
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/solarized-dark-gtk" = gtkSolarized;
+    ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
   };
 }
