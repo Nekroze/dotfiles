@@ -102,6 +102,11 @@ in mkHome {
       export WORKON_HOME=$HOME/.pyvenvs
       mkdir -p $WORKON_HOME
       [ "$IN_NIX_SHELL" ] && export PS1="nix-shell@$PS1"
+      alias ls="${pkgs.exa}/bin/exa"
+      alias ll="${pkgs.exa}/bin/exa -l"
+      alias la="${pkgs.exa}/bin/exa -la"
+      alias lx="${pkgs.exa}/bin/exa -bghHliS"
+      alias lt="${pkgs.exa}/bin/exa -lT"
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
