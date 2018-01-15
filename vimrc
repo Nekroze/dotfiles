@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'raimondi/delimitmate'
 Plug 'robbles/logstash.vim'
+Plug 'buoto/gotests-vim'
 if executable("ctags")
     Plug 'craigemery/vim-autotag'
     Plug 'vim-php/phpctags', { 'for': 'php' }
