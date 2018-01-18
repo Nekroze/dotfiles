@@ -167,6 +167,7 @@ let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
 
+let g:go_fmt_options = '-i -e'
 let g:go_fmt_command = "goreturns"
 let g:UltiSnipsExpandTrigger="<C-j>"
 
