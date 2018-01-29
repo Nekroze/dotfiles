@@ -69,7 +69,7 @@ in mkHome {
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
     ".zshrc".content = ''
       export EDITOR=vim
-      if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/r/xterm-termite" ]; then
+      if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/x/xterm-termite" ]; then
         export TERM='xterm-256color'
       fi
       [ -f $HOME/.localrc ] && source $HOME/.localrc
