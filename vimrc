@@ -231,4 +231,4 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let python_highlight_all=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 set list lcs=tab:\|\ 
-
+let g:go_play_browser_command = 'firefox --private-window %URL% &'
