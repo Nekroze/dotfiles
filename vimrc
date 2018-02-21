@@ -46,6 +46,7 @@ if executable("flake8")
 endif
 Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go'
+Plug 'kopischke/vim-fetch'
 
 call plug#end()
 filetype plugin indent on
