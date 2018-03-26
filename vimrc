@@ -168,16 +168,11 @@ let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
 
-let g:go_fmt_options = '-l gerrit.lan -e'
 let g:go_fmt_command = "goimports"
 let g:UltiSnipsExpandTrigger="<C-j>"
 
 vnoremap <silent> # :s/^/#/<cr>:noh<cr>
 vnoremap <silent> -# :s/^#//<cr>:noh<cr>
-
-if filereadable(expand("$HOME/.vimrc.local"))
-    source ~/.vimrc.local
-endif
 
 if executable("gotags")
     let g:tagbar_type_go = {
@@ -233,3 +228,7 @@ let python_highlight_all=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 set list lcs=tab:\|\ 
 let g:go_play_browser_command = 'firefox --private-window %URL% &'
+
+if filereadable(expand("$HOME/.vimrc.local"))
+    source ~/.vimrc.local
+endif
