@@ -17,4 +17,8 @@ if exists('g:gui_oni') " Oni specific config
 
     set list
     set listchars=trail:·
+else
+    set termguicolors
+    set background=dark
+    colorscheme NeoSolarized
 endif

@@ -13,5 +13,6 @@ module.exports = {
   "wildmenu.mode": true,
   "learning.enabled": true,
   "achievements.enabled": true,
-  "editor.textMateHighlighting.enabled": false
+  "editor.textMateHighlighting.enabled": false,
+  "ui.colorscheme": "solarized8_dark"
 }
