@@ -113,6 +113,7 @@ in mkHome {
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
+    ".config/oni/config.js" = "${dotfiles}/oni.js";
     ".config/i3status/config" = "${dotfiles}/i3status";
     ".config/vifm/vifmrc".content = ''
       colorscheme ${vifmTheme}
