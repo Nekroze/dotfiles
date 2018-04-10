@@ -114,6 +114,7 @@ in mkHome {
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
     ".config/oni/config.js" = "${dotfiles}/oni.js";
+    ".config/nvim/init.vim" = "${dotfiles}/neovim.vim";
     ".config/i3status/config" = "${dotfiles}/i3status";
     ".config/vifm/vifmrc".content = ''
       colorscheme ${vifmTheme}
