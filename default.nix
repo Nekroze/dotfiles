@@ -46,11 +46,6 @@ let
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
   };
-  solarizedNeovim = fetchgit {
-    url = "https://github.com/icymind/NeoSolarized.git";
-    rev = "8a9ff861f2bd4b214b9f106edf252f7c5be02a41";
-    sha256 = "18cv8j679725jmd67v6fqv3r2n3pi1fh84alm2x7hqggaqh8nd8p";
-  };
   gtkSolarized = ((pkgs.callPackage ./dotfiles/numix-solarized.nix) { });
   dotfiles = ./dotfiles;
   mkDesktop = name: exec: ''
@@ -118,9 +113,8 @@ in mkHome {
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
-    ".config/oni/config.js" = "${dotfiles}/oni.js";
     ".config/nvim/init.vim" = "${dotfiles}/neovim.vim";
-    ".config/nvim/colors/NeoSolarized.vim" = "${solarizedNeovim}/colors/NeoSolarized.vim";
+    ".local/share/nvim/site/autoload/plug.vim" = "${vimPlug}/plug.vim";
     ".config/i3status/config" = "${dotfiles}/i3status";
     ".config/vifm/vifmrc".content = ''
       colorscheme ${vifmTheme}

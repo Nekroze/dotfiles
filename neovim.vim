@@ -1,8 +1,18 @@
-if exists('g:gui_oni') " Oni specific config
-    set nocompatible              " be iMproved, required
-    filetype off                  " required
+call plug#begin('~/.local/share/nvim/plugged')
 
-    set number
+Plug 'iCyMind/NeoSolarized'
+Plug 'LnL7/vim-nix'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
+
+call plug#end()
+
+set nocompatible " Be iMproved, required for oni
+set number
+
+if exists('g:gui_oni') " Oni specific config
+    filetype off " Required for oni
     set noswapfile
     set smartcase
 

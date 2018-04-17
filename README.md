@@ -12,6 +12,7 @@
 	* [autojump](http://wiki.github.com/joelthelion/autojump)
 * [termite](https://github.com/thestinger/termite/)
 * [vim](http://www.vim.org/)
+* [neovim](http://neovim.io/)
 * [rofi](https://davedavenport.github.io/rofi)
 * [vifm](http://vifm.info/)
 * [dunst](http://www.knopwob.org/dunst/)
@@ -41,7 +42,7 @@ Then rebuild with nix-home when this repo is updated
 
 # Notes
 
-This sets up vim but does not actually install the plugins. You can do so by running the following command:
+This sets up vim (and neovim) but does not actually install the plugins. You can do so by running the following command (replace vim with nvim if you use neovim):
 
 ```
  $ vim +PlugInstall +qall
