@@ -13,8 +13,8 @@ let
   };
   vimPlug = fetchgit {
     url = "https://github.com/junegunn/vim-plug.git";
-    rev = "b44ea685aa2899316e58cba646095fa7551f8808";
-    sha256 = "0j1sb1sadp88kzmzz4d2mn0qz3ja180h1ib951wy2dksl8as6shm";
+    rev = "e6a775e0df3180d3cfea55b351aa7b112c58c139";
+    sha256 = "1zigz3p9hbqr0rf07v98rrszl9mgr9xx1ai4pjqnl0z0m8pya62w";
   };
   solarizedDirColors = fetchgit {
     url = "https://github.com/seebi/dircolors-solarized.git";
