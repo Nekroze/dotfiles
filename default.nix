@@ -56,6 +56,25 @@ let
     Exec=${exec}
     Terminal=false
   '';
+  writeFishScript = name: text:
+    writeTextFile {
+      inherit name;
+      executable = true;
+      text = ''
+        #!${pkgs.fish}/bin/fish
+        ${text}
+        '';
+      checkPhase = ''
+        export HOME=$(mktemp -d)
+        mkdir -p $HOME
+        ${pkgs.fish}/bin/fish -n $out
+      '';
+    };
+  writeFishAlias = name: command: writeFishScript "${name}.fish" ''
+      function ${name}
+        ${command}
+      end
+    '';
 in mkHome {
   user = "taylorl";
   files = {
@@ -131,5 +150,10 @@ in mkHome {
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/numix-solarized-dark" = gtkSolarized;
     ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
+    ".config/fish/functions/le.fish" = writeFishAlias "le" "${pkgs.exa}/bin/exa";
+    ".config/fish/functions/ll.fish" = writeFishAlias "ll" "${pkgs.exa}/bin/exa -l";
+    ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
+    ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
+    ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
   };
 }
