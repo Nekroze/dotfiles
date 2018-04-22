@@ -3,6 +3,7 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'

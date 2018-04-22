@@ -5,6 +5,7 @@ Plug 'LnL7/vim-nix'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
