@@ -20,7 +20,6 @@ Plug 'robbles/logstash.vim'
 Plug 'buoto/gotests-vim'
 if executable("ctags")
     Plug 'craigemery/vim-autotag'
-    Plug 'vim-php/phpctags', { 'for': 'php' }
 endif
 if filereadable(expand("$HOME/.local/bin/refactor.phar"))
     Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
@@ -40,7 +39,7 @@ Plug 'SirVer/ultisnips'
 Plug 'myusuf3/numbers.vim'
 Plug 'yuratomo/w3m.vim'
 Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
-Plug 'shawncplus/phpcomplete.vim', { 'for': 'php' }
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 if executable("flake8")
     Plug 'nvie/vim-flake8'
