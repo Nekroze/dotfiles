@@ -150,6 +150,10 @@ in mkHome {
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/numix-solarized-dark" = gtkSolarized;
     ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
+    ".config/fish/config.fish" = writeFishScript "config.fish" ''
+      set -x GOPATH /home/$USER/go
+      set -x PATH $PATH $GOPATH/bin
+    '';
     ".config/fish/functions/le.fish" = writeFishAlias "le" "${pkgs.exa}/bin/exa";
     ".config/fish/functions/ll.fish" = writeFishAlias "ll" "${pkgs.exa}/bin/exa -l";
     ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
