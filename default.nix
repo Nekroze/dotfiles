@@ -135,6 +135,7 @@ in mkHome {
     ".config/nvim/init.vim" = "${dotfiles}/neovim.vim";
     ".local/share/nvim/site/autoload/plug.vim" = "${vimPlug}/plug.vim";
     ".config/i3status/config" = "${dotfiles}/i3status";
+    ".config/i3/config" = "${dotfiles}/i3.config";
     ".config/vifm/vifmrc".content = ''
       colorscheme ${vifmTheme}
     '';
