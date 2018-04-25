@@ -19,6 +19,7 @@
 * [git](http://git-scm.com/)
 * [tmux](http://tmux.github.io/)
 * [multitail](http://www.vanheusden.com/multitail/)
+* [oni](https://www.onivim.io)
 
 # Usage
 

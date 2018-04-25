@@ -159,5 +159,6 @@ in mkHome {
     ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
     ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
+    ".config/oni/config.tsx" = "${dotfiles}/oni.tsx";
   };
 }
