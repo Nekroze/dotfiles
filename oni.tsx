@@ -35,5 +35,5 @@ export const configuration = {
     "editor.fontFamily": "Fira Code",
     "oni.hideMenu": true,
     "language.go.languageServer.rootFiles": [".git"],
-    "language.go.languageServer.command": "~/go/bin/go-langserver",
+    "language.go.languageServer.command": "go-langserver",
 }
