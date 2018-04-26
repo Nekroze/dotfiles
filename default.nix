@@ -46,6 +46,11 @@ let
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
   };
+  vimPluginGo = fetchgit {
+    url = "https://github.com/fatih/vim-go.git";
+    rev = "7491209072ed4aa746e6fe7894f976ecd251801e";
+    sha256 = "1a7fy8n9h383776jixlwxl8y3h8h5mixi0bcv4lv61x0g3xxh8gx";
+  };
   gtkSolarized = ((pkgs.callPackage ./dotfiles/numix-solarized.nix) { });
   dotfiles = ./dotfiles;
   mkDesktop = name: exec: ''
@@ -161,5 +166,6 @@ in mkHome {
     ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
     ".config/oni/config.tsx" = "${dotfiles}/oni.tsx";
+    ".config/oni/plugins/vim-go" = vimPluginGo;
   };
 }
