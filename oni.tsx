@@ -15,13 +15,13 @@ export const activate = (oni: Oni.Plugin.Api) => {
     // Or remove the default bindings here by uncommenting the below line:
     //
     // oni.input.unbind("<c-p>")
-    
+
     oni.editors.anyEditor.onModeChanged.subscribe((newMode) => {
         if (newMode === "insert") {
             oni.configuration.setValues({"vim.setting.relativenumber": false})
         } else {
             oni.configuration.setValues({"vim.setting.relativenumber": true})
-        } 
+        }
     })
 
 }
@@ -36,4 +36,5 @@ export const configuration = {
     "oni.hideMenu": true,
     "language.go.languageServer.rootFiles": [".git"],
     "language.go.languageServer.command": "go-langserver",
+    "language.go.languageServer.arguments": ["-gocodecompletion", "-freeosmemory", "false"],
 }
