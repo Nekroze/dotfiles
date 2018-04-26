@@ -80,8 +80,8 @@ let
         ${command}
       end
     '';
-in mkHome {
-  user = "taylorl";
+in mkHome rec {
+  user = "nekroze";
   files = {
     ".config/termite/config".content = ''
       [options]
@@ -165,7 +165,28 @@ in mkHome {
     ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
     ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
-    ".config/oni/config.tsx" = "${dotfiles}/oni.tsx";
+    ".config/oni/config.tsx".content = ''
+      import * as React from "/opt/Oni/resources/app/node_modules/react"
+      import * as Oni from "/opt/Oni/resources/app/node_modules/oni-api"
+      export const activate = (oni: Oni.Plugin.Api) => {
+          oni.editors.anyEditor.onModeChanged.subscribe((newMode) => {
+              if (newMode === "insert") {
+                  oni.configuration.setValues({"vim.setting.relativenumber": false})
+              } else {
+                  oni.configuration.setValues({"vim.setting.relativenumber": true})
+              }
+          })
+      }
+      export const configuration = {
+          "ui.colorscheme": "solarized8_dark",
+          "editor.fontFamily": "Fira Code",
+          "oni.hideMenu": true,
+          "commandline.mode": false,
+          "language.go.languageServer.rootFiles": [".git"],
+          "language.go.languageServer.command": "/home/${user}/go/bin/go-langserver",
+          "language.go.languageServer.arguments": ["-gocodecompletion", "-freeosmemory", "false"],
+      }
+    '';
     ".config/oni/plugins/vim-go" = vimPluginGo;
   };
 }
