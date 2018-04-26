@@ -34,6 +34,7 @@ export const configuration = {
     "ui.colorscheme": "solarized8_dark",
     "editor.fontFamily": "Fira Code",
     "oni.hideMenu": true,
+    "commandline.mode": false,
     "language.go.languageServer.rootFiles": [".git"],
     "language.go.languageServer.command": "go-langserver",
     "language.go.languageServer.arguments": ["-gocodecompletion", "-freeosmemory", "false"],
