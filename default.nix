@@ -81,7 +81,7 @@ let
       end
     '';
 in mkHome rec {
-  user = "nekroze";
+  user = "taylorl";
   files = {
     ".config/termite/config".content = ''
       [options]
