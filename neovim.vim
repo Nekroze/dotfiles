@@ -1,11 +1,13 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'sheerun/vim-polyglot'
 Plug 'iCyMind/NeoSolarized'
-Plug 'LnL7/vim-nix'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go'
-Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-sensible'
+Plug 'kopischke/vim-fetch'
+Plug 'myusuf3/numbers.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -33,3 +35,5 @@ else
     set background=dark
     colorscheme NeoSolarized
 endif
+
+let g:Guifont="Fira Code"
