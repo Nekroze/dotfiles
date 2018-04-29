@@ -8,6 +8,9 @@ Plug 'tpope/vim-sensible'
 Plug 'kopischke/vim-fetch'
 Plug 'myusuf3/numbers.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+if executable("composer")
+	Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+endif
 
 call plug#end()
 
