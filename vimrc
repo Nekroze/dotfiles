@@ -4,49 +4,51 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot'
+Plug 'kopischke/vim-fetch'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'mattn/emmet-vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-syntastic/syntastic'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
-Plug 'lumiliet/vim-twig', { 'for': 'twig' }
-Plug 'LnL7/vim-nix'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'raimondi/delimitmate'
 Plug 'robbles/logstash.vim'
-Plug 'buoto/gotests-vim'
-if executable("ctags")
-    Plug 'craigemery/vim-autotag'
-endif
-if filereadable(expand("$HOME/.local/bin/refactor.phar"))
-    Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
-endif
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'veloce/vim-behat'
-if $TERM=~#"^tmux.*"
-    Plug 'christoomey/vim-tmux-navigator'
-endif
 Plug 'elmcast/elm-vim'
-Plug 'hashivim/vim-terraform'
-Plug 'majutsushi/tagbar'
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'NLKNguyen/vim-docker-compose-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'myusuf3/numbers.vim'
 Plug 'yuratomo/w3m.vim'
-Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-if executable("flake8")
-    Plug 'nvie/vim-flake8'
-endif
 Plug 'Yggdroot/indentLine'
-Plug 'fatih/vim-go'
-Plug 'kopischke/vim-fetch'
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+if executable("ctags")
+	Plug 'craigemery/vim-autotag'
+	Plug 'majutsushi/tagbar'
+endif
+if $TERM=~#"^tmux.*"
+	Plug 'christoomey/vim-tmux-navigator'
+endif
+if executable("docker")
+	Plug 'ekalinin/Dockerfile.vim'
+endif
+if executable("elvish")
+	Plug 'dmix/elvish.vim', { 'on_ft': ['elvish']}
+endif
+if executable("php")
+	Plug 'veloce/vim-behat'
+	Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+	if filereadable(expand("$HOME/.local/bin/refactor.phar"))
+		Plug 'vim-php/vim-php-refactoring', { 'for': 'php' }
+	endif
+endif
+if executable("flake8")
+	Plug 'nvie/vim-flake8'
+endif
+if executable("go")
+	Plug 'fatih/vim-go'
+	Plug 'buoto/gotests-vim'
+endif
 
 call plug#end()
 filetype plugin indent on
