@@ -36,4 +36,4 @@ else
     colorscheme NeoSolarized
 endif
 
-let g:Guifont="Fira Code"
+let g:Guifont="Fira Code:h10"
