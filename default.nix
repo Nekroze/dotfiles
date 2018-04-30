@@ -138,6 +138,9 @@ in mkHome rec {
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
     ".config/nvim/init.vim" = "${dotfiles}/neovim.vim";
+    ".config/nvim/ginit.vim".content = ''
+      Guifont ${preferedFont}:h9
+    '';
     ".local/share/nvim/site/autoload/plug.vim" = "${vimPlug}/plug.vim";
     ".config/i3status/config" = "${dotfiles}/i3status";
     ".config/i3/config" = "${dotfiles}/i3.config";

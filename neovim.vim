@@ -16,7 +16,6 @@ endif
 
 call plug#end()
 
-
 if exists('g:gui_oni') " Oni specific config
     filetype off " Required for oni
     set noswapfile
@@ -38,8 +37,9 @@ else
     set background=dark
     colorscheme NeoSolarized
 endif
-let g:Guifont="Fira Code:h9"
 
+" Automatically change dir to active file
+set autochdir
 " Always use system clipboard
 set clipboard+=unnamedplus
 
