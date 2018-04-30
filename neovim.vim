@@ -1,3 +1,5 @@
+set nocompatible " Be iMproved, required for oni
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'sheerun/vim-polyglot'
@@ -14,8 +16,6 @@ endif
 
 call plug#end()
 
-set nocompatible " Be iMproved, required for oni
-set number
 
 if exists('g:gui_oni') " Oni specific config
     filetype off " Required for oni
@@ -38,5 +38,37 @@ else
     set background=dark
     colorscheme NeoSolarized
 endif
+let g:Guifont="Fira Code:h9"
 
-let g:Guifont="Fira Code:h10"
+" Always use system clipboard
+set clipboard+=unnamedplus
+
+" Window split settings
+highlight TermCursor ctermfg=red guifg=red
+set splitbelow
+set splitright
+
+" Terminal settings
+tnoremap <Leader><ESC> <C-\><C-n>
+
+" Window navigation function
+" Make ctrl-h/j/k/l move between windows and auto-insert in terminals
+func! s:mapMoveToWindowInDirection(direction)
+    func! s:maybeInsertMode(direction)
+        stopinsert
+        execute "wincmd" a:direction
+
+        if &buftype == 'terminal'
+            startinsert!
+        endif
+    endfunc
+
+    execute "tnoremap" "<silent>" "<C-" . a:direction . ">"
+                \ "<C-\\><C-n>"
+                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+    execute "nnoremap" "<silent>" "<C-" . a:direction . ">"
+                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+endfunc
+for dir in ["h", "j", "l", "k"]
+    call s:mapMoveToWindowInDirection(dir)
+endfor
