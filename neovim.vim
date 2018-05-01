@@ -10,8 +10,13 @@ Plug 'tpope/vim-sensible'
 Plug 'kopischke/vim-fetch'
 Plug 'myusuf3/numbers.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-syntastic/syntastic'
 if executable("composer")
 	Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+endif
+if executable("go")
+	Plug 'fatih/vim-go'
+	Plug 'buoto/gotests-vim'
 endif
 
 call plug#end()
@@ -72,3 +77,9 @@ endfunc
 for dir in ["h", "j", "l", "k"]
     call s:mapMoveToWindowInDirection(dir)
 endfor
+
+let g:go_fmt_command = "goimports"
+
+if filereadable(expand("$HOME/.nvimrc.local"))
+    source ~/.nvimrc.local
+endif
