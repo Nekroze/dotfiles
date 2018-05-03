@@ -87,6 +87,7 @@ in mkHome rec {
       [options]
       font = ${preferedFont} 10
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
+
     ".zshrc".content = ''
       export EDITOR=vim
       if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/x/xterm-termite" ]; then
@@ -127,7 +128,9 @@ in mkHome rec {
       alias la="${pkgs.exa}/bin/exa -la"
       alias lx="${pkgs.exa}/bin/exa -bghHliS"
       alias lt="${pkgs.exa}/bin/exa -lT"
+      export PATH="$PATH:/home/${user}/.npm-packages/bin"
     '';
+
     ".Xresources".content = ''
       rofi.color-enabled: true
       rofi.color-window: #002b37, #002b37, #003642
@@ -191,5 +194,8 @@ in mkHome rec {
       }
     '';
     ".config/oni/plugins/vim-go" = vimPluginGo;
+    ".npmrc".content = ''
+      prefix=/home/${user}/.npm-packages
+    '';
   };
 }
