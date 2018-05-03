@@ -11,6 +11,7 @@ Plug 'kopischke/vim-fetch'
 Plug 'myusuf3/numbers.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'Yggdroot/indentLine'
 if executable("composer")
 	Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 endif
@@ -34,9 +35,6 @@ if exists('g:gui_oni') " Oni specific config
 
     " Enable GUI mouse behavior
     set mouse=a
-
-    set list
-    set listchars=trail:·
 else
     set termguicolors
     set background=dark
