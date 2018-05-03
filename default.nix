@@ -172,8 +172,8 @@ in mkHome rec {
     ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
     ".config/oni/config.tsx".content = ''
-      import * as React from "/opt/Oni/resources/app/node_modules/react"
-      import * as Oni from "/opt/Oni/resources/app/node_modules/oni-api"
+      import * as React from "react"
+      import * as Oni from "oni-api"
       export const activate = (oni: Oni.Plugin.Api) => {
           oni.editors.anyEditor.onModeChanged.subscribe((newMode) => {
               if (newMode === "insert") {
@@ -186,14 +186,13 @@ in mkHome rec {
       export const configuration = {
           "ui.colorscheme": "solarized8_dark",
           "editor.fontFamily": "Fira Code",
+          "oni.loadInitVim": true,
           "oni.hideMenu": true,
-          "commandline.mode": false,
           "language.go.languageServer.rootFiles": [".git"],
           "language.go.languageServer.command": "/home/${user}/go/bin/go-langserver",
           "language.go.languageServer.arguments": ["-gocodecompletion", "-freeosmemory", "false"],
       }
     '';
-    ".config/oni/plugins/vim-go" = vimPluginGo;
     ".npmrc".content = ''
       prefix=/home/${user}/.npm-packages
     '';
