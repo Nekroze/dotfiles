@@ -83,3 +83,5 @@ let g:go_fmt_command = "goimports"
 if filereadable(expand("$HOME/.nvimrc.local"))
     source ~/.nvimrc.local
 endif
+
+set tabstop=4 shiftwidth=4
