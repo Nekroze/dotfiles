@@ -3,7 +3,7 @@ with import <nixhome> { inherit stdenv; inherit pkgs; };
 with lib;
 let
   ## Customizable
-  preferedFont = "Fira Code";
+  preferedFont = "Source Code Pro";
   vifmTheme = "solarized-dark";
   ## Repositories
   termiteSolarized = fetchgit {
