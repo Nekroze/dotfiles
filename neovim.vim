@@ -12,13 +12,9 @@ Plug 'myusuf3/numbers.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Yggdroot/indentLine'
-if executable("composer")
-	Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-endif
-if executable("go")
-	Plug 'fatih/vim-go'
-	Plug 'buoto/gotests-vim'
-endif
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'fatih/vim-go'
+Plug 'buoto/gotests-vim'
 
 call plug#end()
 
