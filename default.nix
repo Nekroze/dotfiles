@@ -89,7 +89,8 @@ in mkHome rec {
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
 
     ".zshrc".content = ''
-      export EDITOR=vim
+      export EDITOR=nvim
+      alias vim=nvim
       if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/x/xterm-termite" ]; then
         export TERM='xterm-256color'
       fi

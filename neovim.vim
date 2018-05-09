@@ -12,9 +12,14 @@ Plug 'myusuf3/numbers.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Yggdroot/indentLine'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'
+if !exists('g:gui_oni') " neovim without oni can also use LSP
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+endif
 
 call plug#end()
 
@@ -35,6 +40,21 @@ else
     set termguicolors
     set background=dark
     colorscheme NeoSolarized
+
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+    if executable('go-langserver')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'go-langserver',
+            \ 'cmd': {server_info->[&shell, &shellcmdflag, expand('~/go/bin/go-langserver -gocodecompletion')]},
+            \ 'whitelist': ['go'],
+            \ })
+    endif
+    let g:lsp_log_verbose = 1
+    let g:lsp_log_file = expand('~/vim-lsp.log')
+    let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 endif
 
 " Automatically change dir to active file
