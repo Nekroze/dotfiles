@@ -198,5 +198,9 @@ in mkHome rec {
     ".npmrc".content = ''
       prefix=/home/${user}/.npm-packages
     '';
+    ".taskrc".content = ''
+      data.location=~/keybase/private/nekroze/taskwarrior
+      include ${pkgs.taskwarrior}/share/doc/task/rc/solarized-dark-256.theme
+    '';
   };
 }
