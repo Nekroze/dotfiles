@@ -9,7 +9,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
 Plug 'kopischke/vim-fetch'
 Plug 'myusuf3/numbers.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go'
@@ -19,6 +18,12 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+endif
+if executable('fzf')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+else
+Plug 'ctrlpvim/ctrlp.vim'
 endif
 
 call plug#end()
@@ -96,3 +101,21 @@ if filereadable(expand("$HOME/.nvimrc.local"))
 endif
 
 set tabstop=4 shiftwidth=4
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+
+if executable('fzf')
+	nmap <leader><tab> <plug>(fzf-maps-n)
+	xmap <leader><tab> <plug>(fzf-maps-x)
+	omap <leader><tab> <plug>(fzf-maps-o)
+
+	" Insert mode completion
+	imap <c-x><c-k> <plug>(fzf-complete-word)
+	imap <c-x><c-f> <plug>(fzf-complete-path)
+	imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+	imap <c-x><c-l> <plug>(fzf-complete-line)
+endif
