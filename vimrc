@@ -12,6 +12,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-syntastic/syntastic'
 Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'scrooloose/nerdtree'
+Plug 'sjl/gundo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 let g:fzf_action = {

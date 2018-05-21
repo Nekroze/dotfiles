@@ -13,6 +13,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'
+Plug 'sjl/gundo.vim'
 if !exists('g:gui_oni') " neovim without oni can also use LSP
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
