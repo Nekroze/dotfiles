@@ -202,5 +202,6 @@ in mkHome rec {
       data.location=~/keybase/private/nekroze/taskwarrior
       include ${pkgs.taskwarrior}/share/doc/task/rc/solarized-dark-256.theme
     '';
+    ".haxelib".content = "/home/${user}/.haxe/lib";
   };
 }
