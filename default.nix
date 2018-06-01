@@ -31,11 +31,6 @@ let
     rev = "235f9e8728810cfa6c0e07974dbd72ac9158f745";
     sha256 = "0yn9d4ra77ky2hba34d2dccfcmbjk31gp6xkd3g8zv3621kpijfy";
   };
-  vimperatorSolarized = fetchgit {
-    url = "https://github.com/osakanafish/vimperator-colors-solarized.git";
-    rev = "6b67295c6dbafdd41d954a96d2392f9259a8a6c4";
-    sha256 = "0ai7iy5grngqmz6376ivdngl3l91kg9ml09qbj41fv7iyrxs25bs";
-  };
   zshNotify = fetchgit {
     url = "https://github.com/t413/zsh-background-notify.git";
     rev = "d5f0430cb052f82c433c17707816910da87e201e";
@@ -45,11 +40,6 @@ let
     url = "https://github.com/kiith-sa/DSnips.git";
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
-  };
-  vimPluginGo = fetchgit {
-    url = "https://github.com/fatih/vim-go.git";
-    rev = "7491209072ed4aa746e6fe7894f976ecd251801e";
-    sha256 = "1a7fy8n9h383776jixlwxl8y3h8h5mixi0bcv4lv61x0g3xxh8gx";
   };
   gtkSolarized = ((pkgs.callPackage ./dotfiles/numix-solarized.nix) { });
   dotfiles = ./dotfiles;
@@ -169,8 +159,6 @@ in mkHome rec {
     ".tmux.conf" = "${dotfiles}/tmux.conf";
     ".multitailrc" = "${dotfiles}/multitailrc";
     ".elvish/rc.elv" = "${dotfiles}/rc.elv";
-    ".vimperator/colors" = "${vimperatorSolarized}/colors";
-    ".vimperatorrc".content = "colorscheme solarized-dark";
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/numix-solarized-dark" = gtkSolarized;
     ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
