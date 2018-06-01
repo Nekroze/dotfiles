@@ -3,17 +3,21 @@ set nocompatible " Be iMproved, required for oni
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'sheerun/vim-polyglot'
-Plug 'iCyMind/NeoSolarized'
+if has('nvim')
+	Plug 'icymind/neosolarized'
+else
+	Plug 'altercation/vim-colors-solarized'
+endif
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
-Plug 'kopischke/vim-fetch'
 Plug 'myusuf3/numbers.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'
 Plug 'sjl/gundo.vim'
+Plug 'raimondi/delimitmate'
 if !exists('g:gui_oni') " neovim without oni can also use LSP
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
@@ -30,6 +34,13 @@ nnoremap <c-p> :FZF<cr>
 
 call plug#end()
 
+if has('gui_running')
+	set guioptions-=m  "remove menu bar
+	set guioptions-=T  "remove toolbar
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
+	set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+endif
 if exists('g:gui_oni') " Oni specific config
     filetype off " Required for oni
     set noswapfile
@@ -46,19 +57,19 @@ if exists('g:gui_oni') " Oni specific config
 else
     set termguicolors
     set background=dark
-    colorscheme NeoSolarized
+	try
+		if has('nvim')
+			colorscheme NeoSolarized
+		else
+			colorscheme solarized
+		endif
+	catch /^Vim\%((\a\+)\)\=:E185/
+	endtry
 
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-    if executable('go-langserver')
-        au User lsp_setup call lsp#register_server({
-            \ 'name': 'go-langserver',
-            \ 'cmd': {server_info->[&shell, &shellcmdflag, expand('~/go/bin/go-langserver -gocodecompletion')]},
-            \ 'whitelist': ['go'],
-            \ })
-    endif
 endif
 
 " Automatically change dir to active file
@@ -98,10 +109,6 @@ endfor
 
 let g:go_fmt_command = "goimports"
 
-if filereadable(expand("$HOME/.nvimrc.local"))
-    source ~/.nvimrc.local
-endif
-
 set tabstop=4 shiftwidth=4
 
 let g:syntastic_check_on_open = 1
@@ -122,3 +129,34 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" highlight trailing spaces
+autocmd BufNewFile,BufRead * let b:mtrailingws=matchadd('ErrorMsg', '\s\+$', -1)
+" highlight tabs between spaces
+autocmd BufNewFile,BufRead * let b:mtabbeforesp=matchadd('ErrorMsg', '\v(\t+)\ze( +)', -1)
+autocmd BufNewFile,BufRead * let b:mtabaftersp=matchadd('ErrorMsg', '\v( +)\zs(\t+)', -1)
+" disable matches in help buffers
+autocmd BufEnter,FileType help call clearmatches()
+
+" Vim folding
+set foldmethod=indent
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+set nofoldenable
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+augroup filetypedetect
+    au! BufRead,BufNewFile Dockerfile.*       setfiletype dockerfile
+augroup END

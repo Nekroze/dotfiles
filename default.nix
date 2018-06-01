@@ -142,7 +142,12 @@ in mkHome rec {
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
-    ".config/nvim/init.vim" = "${dotfiles}/neovim.vim";
+    ".config/nvim/init.vim".content = ''
+      source ${dotfiles}/common.vim
+      if filereadable(expand("$HOME/.vimrc.local"))
+        source ~/.vimrc.local
+      endif
+    '';
     ".config/nvim/ginit.vim".content = ''
       Guifont ${preferedFont}:h9
     '';
@@ -153,7 +158,12 @@ in mkHome rec {
       colorscheme ${vifmTheme}
     '';
     ".vim/autoload/plug.vim" = "${vimPlug}/plug.vim";
-    ".vimrc" = "${dotfiles}/vimrc";
+    ".vimrc".content = ''
+      source ${dotfiles}/common.vim
+      if filereadable(expand("$HOME/.vimrc.local"))
+        source ~/.vimrc.local
+      endif
+    '';
     ".gitconfig" = "${dotfiles}/gitconfig";
     ".gitignore" = "${dotfiles}/gitignore";
     ".tmux.conf" = "${dotfiles}/tmux.conf";
