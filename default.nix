@@ -5,6 +5,7 @@ let
   ## Customizable
   preferedFont = "Source Code Pro";
   vifmTheme = "solarized-dark";
+  zshTheme = "flazz";
   ## Repositories
   termiteSolarized = fetchgit {
     url = "https://github.com/alpha-omega/termite-colors-solarized.git";
@@ -40,6 +41,11 @@ let
     url = "https://github.com/kiith-sa/DSnips.git";
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
+  };
+  zshOhMy= fetchgit {
+    url = "https://github.com/robbyrussell/oh-my-zsh.git";
+    rev = "ebda8af870acc295388ed187f0139a8bffa83196";
+    sha256 = "0ycsy3236pfw2sdc8qqjmnkq5yllgm2fh8lhi4zp9sc8jkq5by3s";
   };
   gtkSolarized = ((pkgs.callPackage ./dotfiles/numix-solarized.nix) { });
   dotfiles = ./dotfiles;
@@ -121,8 +127,24 @@ in mkHome rec {
       alias lx="${pkgs.exa}/bin/exa -bghHliS"
       alias lt="${pkgs.exa}/bin/exa -lT"
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
+      export ZSH=${zshOhMy}
+      ZSH_THEME="${zshTheme}"
+      plugins=(
+        autojump
+        common-aliases
+        ssh-agent
+        gitfast
+        docker
+        per-directory-history
+        perms
+        systemd
+        web-search
+        history-substring-search
+        vi-like
+        vi-mode
+      )
+      source $ZSH/oh-my-zsh.sh
     '';
-
     ".Xresources".content = ''
       rofi.color-enabled: true
       rofi.color-window: #002b37, #002b37, #003642
