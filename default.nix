@@ -85,6 +85,24 @@ in mkHome rec {
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
 
     ".zshrc".content = ''
+      export ZSH=${zshOhMy}
+      ZSH_THEME="${zshTheme}"
+      plugins=(
+        autojump
+        common-aliases
+        ssh-agent
+        gitfast
+        docker
+        per-directory-history
+        perms
+        systemd
+        web-search
+        history-substring-search
+        vi-like
+        vi-mode
+      )
+      source $ZSH/oh-my-zsh.sh
+
       export EDITOR=nvim
       alias realvim=$(which vim)
       alias vim=nvim
@@ -127,23 +145,6 @@ in mkHome rec {
       alias lx="${pkgs.exa}/bin/exa -bghHliS"
       alias lt="${pkgs.exa}/bin/exa -lT"
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
-      export ZSH=${zshOhMy}
-      ZSH_THEME="${zshTheme}"
-      plugins=(
-        autojump
-        common-aliases
-        ssh-agent
-        gitfast
-        docker
-        per-directory-history
-        perms
-        systemd
-        web-search
-        history-substring-search
-        vi-like
-        vi-mode
-      )
-      source $ZSH/oh-my-zsh.sh
     '';
     ".Xresources".content = ''
       rofi.color-enabled: true
