@@ -106,6 +106,7 @@ in mkHome rec {
       export EDITOR=nvim
       alias realvim=$(which vim)
       alias vim=nvim
+      alias v=vim
       if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/x/xterm-termite" ]; then
         export TERM='xterm-256color'
       fi
