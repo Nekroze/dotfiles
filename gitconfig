@@ -2,7 +2,7 @@
 	name = Taylor Lawson
 	email = taylorl@benon.com
 [core]
-	editor = vim
+	editor = nvim
     excludesfile = /home/taylorl/.gitignore
 [diff]
 	tool = vimdiff
