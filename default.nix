@@ -198,6 +198,8 @@ in mkHome rec {
     ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
     ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
+    ".config/fish/functions/vim.fish" = writeFishAlias "vim" "nvim $argv";
+    ".config/fish/functions/v.fish" = writeFishAlias "v" "nvim $argv";
     ".config/oni/config.tsx".content = ''
       import * as React from "react"
       import * as Oni from "oni-api"
