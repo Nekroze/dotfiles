@@ -203,6 +203,7 @@ in mkHome rec {
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
     ".config/fish/functions/vim.fish" = writeFishAlias "vim" "nvim $argv";
     ".config/fish/functions/v.fish" = writeFishAlias "v" "nvim $argv";
+    ".config/fish/functions/j.fish" = writeFishAlias "j" "cd (autojump $argv)";
     ".config/oni/config.tsx".content = ''
       import * as React from "react"
       import * as Oni from "oni-api"
