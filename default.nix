@@ -186,9 +186,12 @@ in mkHome rec {
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/numix-solarized-dark" = gtkSolarized;
     ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
-    ".config/fish/config.fish" = writeFishScript "config.fish" ''
+    ".config/fish/conf.d/go.fish" = writeFishScript "go.fish" ''
       set -x GOPATH /home/$USER/go
       set -x PATH $PATH $GOPATH/bin
+    '';
+    ".config/fish/conf.d/vi.fish" = writeFishScript "vi.fish" ''
+      set -U fish_key_bindings fish_vi_key_bindings
     '';
     ".config/fish/functions/le.fish" = writeFishAlias "le" "${pkgs.exa}/bin/exa";
     ".config/fish/functions/ll.fish" = writeFishAlias "ll" "${pkgs.exa}/bin/exa -l";
