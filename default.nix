@@ -193,6 +193,9 @@ in mkHome rec {
     ".config/fish/conf.d/vi.fish" = writeFishScript "vi.fish" ''
       set -U fish_key_bindings fish_vi_key_bindings
     '';
+    ".config/fish/conf.d/home.bin.fish" = writeFishScript "home.bin.fish" ''
+      set -x PATH $PATH $HOME/.bin
+    '';
     ".config/fish/functions/le.fish" = writeFishAlias "le" "${pkgs.exa}/bin/exa";
     ".config/fish/functions/ll.fish" = writeFishAlias "ll" "${pkgs.exa}/bin/exa -l";
     ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
