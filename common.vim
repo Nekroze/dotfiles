@@ -173,3 +173,23 @@ endif
 augroup filetypedetect
     au! BufRead,BufNewFile Dockerfile.*       setfiletype dockerfile
 augroup END
+
+" When not using Oni and dapper is available use the LSP servers dapper
+" provides
+if !exists('g:gui_oni') && executable('dapper')
+	au user lsp_setup call lsp#register_server({
+				\ 'name': 'bash',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dapper lsp-bash']},
+				\ 'whitelist': ['sh'],
+				\ })
+	au user lsp_setup call lsp#register_server({
+				\ 'name': 'php',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dapper lsp-php']},
+				\ 'whitelist': ['php'],
+				\ })
+	au user lsp_setup call lsp#register_server({
+				\ 'name': 'dockerfile',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dapper lsp-dockerfile']},
+				\ 'whitelist': ['dockerfile'],
+				\ })
+endif
