@@ -18,7 +18,9 @@ Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'
 Plug 'sjl/gundo.vim'
 Plug 'raimondi/delimitmate'
+if has('python')
 Plug 'jdonaldson/vaxe'
+endif
 if !exists('g:gui_oni') " neovim without oni can also use LSP
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
@@ -71,13 +73,17 @@ else
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
 	let g:asyncomplete_remove_duplicates = 1
-	call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-	\ 'name': 'omni',
-	\ 'whitelist': ['*'],
-	\ 'blacklist': [],
-	\ 'completor': function('asyncomplete#sources#omni#completor')
-	\  }))
+	if has('python')
+		set autowrite
+		call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+		\ 'name': 'omni',
+		\ 'whitelist': ['*'],
+		\ 'blacklist': [],
+		\ 'completor': function('asyncomplete#sources#omni#completor')
+		\  }))
+	endif
 endif
 
 " Automatically change dir to active file
