@@ -90,7 +90,6 @@ in mkHome rec {
       export ZSH=${zshOhMy}
       ZSH_THEME="${zshTheme}"
       plugins=(
-        autojump
         common-aliases
         ssh-agent
         gitfast
@@ -104,6 +103,7 @@ in mkHome rec {
         vi-mode
       )
       source $ZSH/oh-my-zsh.sh
+      source ${pkgs.autojump}/share/autojump/autojump.zsh
 
       export EDITOR=${pkgs.neovim}/bin/nvim
       alias realvim=$(which vim)
@@ -199,6 +199,7 @@ in mkHome rec {
     ".config/fish/conf.d/home.bin.fish" = writeFishScript "home.bin.fish" ''
       set -x PATH $PATH $HOME/.bin
     '';
+    ".config/fish/conf.d/autojump.fish" = "${pkgs.autojump}/share/autojump/autojump.fish";
     ".config/fish/functions/le.fish" = writeFishAlias "le" "${pkgs.exa}/bin/exa";
     ".config/fish/functions/ll.fish" = writeFishAlias "ll" "${pkgs.exa}/bin/exa -l";
     ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
@@ -208,7 +209,6 @@ in mkHome rec {
     ".config/fish/functions/nvim.fish" = writeFishAlias "nvim" "${pkgs.neovim}/bin/nvim $argv";
     ".config/fish/functions/vim.fish" = writeFishAlias "vim" "nvim $argv";
     ".config/fish/functions/v.fish" = writeFishAlias "v" "nvim $argv";
-    ".config/fish/functions/j.fish" = writeFishAlias "j" "cd (autojump $argv)";
     ".config/oni/config.tsx".content = ''
       import * as React from "react"
       import * as Oni from "oni-api"
