@@ -4,6 +4,8 @@ with lib;
 let
   ## Customizable
   preferedFont = "Source Code Pro";
+  preferedShell = "fish";
+  preferedEditor = "nvim";
   vifmTheme = "solarized-dark";
   zshTheme = "flazz";
   ## Repositories
@@ -232,6 +234,12 @@ in mkHome rec {
     ".taskrc".content = ''
       data.location=~/keybase/private/nekroze/taskwarrior
       include ${pkgs.taskwarrior}/share/doc/task/rc/solarized-dark-256.theme
+    '';
+    ".config/kitty/kitty.conf".content = ''
+      shell ${preferedShell}
+      editor ${preferedEditor}
+      font_family ${preferedFont}
+      include ${dotfiles}/kitty.conf
     '';
   };
 }
