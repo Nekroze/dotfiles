@@ -105,10 +105,11 @@ in mkHome rec {
       )
       source $ZSH/oh-my-zsh.sh
 
-      export EDITOR=nvim
+      export EDITOR=${pkgs.neovim}/bin/nvim
       alias realvim=$(which vim)
-      alias vim=nvim
-      alias v=vim
+      alias nvim=${pkgs.neovim}/bin/nvim
+      alias vim=${pkgs.neovim}/bin/nvim
+      alias v=${pkgs.neovim}/bin/nvim
       if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/x/xterm-termite" ]; then
         export TERM='xterm-256color'
       fi
@@ -203,6 +204,8 @@ in mkHome rec {
     ".config/fish/functions/la.fish" = writeFishAlias "la" "${pkgs.exa}/bin/exa -la";
     ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
+    ".config/fish/functions/rvim.fish" = writeFishAlias "rvim" "${pkgs.vim}/bin/vim $argv";
+    ".config/fish/functions/nvim.fish" = writeFishAlias "nvim" "${pkgs.neovim}/bin/nvim $argv";
     ".config/fish/functions/vim.fish" = writeFishAlias "vim" "nvim $argv";
     ".config/fish/functions/v.fish" = writeFishAlias "v" "nvim $argv";
     ".config/fish/functions/j.fish" = writeFishAlias "j" "cd (autojump $argv)";
