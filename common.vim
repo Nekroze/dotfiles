@@ -20,8 +20,9 @@ Plug 'sjl/gundo.vim'
 Plug 'raimondi/delimitmate'
 if has('python')
 Plug 'jdonaldson/vaxe'
+set autowrite
 endif
-if !exists('g:gui_oni') " neovim without oni can also use LSP
+if !exists('g:gui_oni') " neovim/vim without oni can also use LSP
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -75,15 +76,16 @@ else
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 	let g:asyncomplete_remove_duplicates = 1
-	if has('python')
-		set autowrite
+
+	try
 		call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
 		\ 'name': 'omni',
 		\ 'whitelist': ['*'],
 		\ 'blacklist': [],
 		\ 'completor': function('asyncomplete#sources#omni#completor')
 		\  }))
-	endif
+	catch /^Vim\%((\a\+)\)\=:E185/
+	endtry
 endif
 " Always use system clipboard
 set clipboard+=unnamedplus
