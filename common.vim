@@ -85,9 +85,6 @@ else
 		\  }))
 	endif
 endif
-
-" Automatically change dir to active file
-set autochdir
 " Always use system clipboard
 set clipboard+=unnamedplus
 
