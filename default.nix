@@ -82,6 +82,7 @@ in mkHome rec {
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
 
     ".zshrc".content = ''
+      export DEFAULT_USER=${user}
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       ZSH_THEME="${zshTheme}"
       plugins=(
@@ -230,7 +231,7 @@ in mkHome rec {
       prefix=/home/${user}/.npm-packages
     '';
     ".taskrc".content = ''
-      data.location=~/keybase/private/nekroze/taskwarrior
+      data.location=~/keybase/private/${user}/taskwarrior
       include ${pkgs.taskwarrior}/share/doc/task/rc/solarized-dark-256.theme
     '';
     ".config/kitty/kitty.conf".content = ''
