@@ -99,6 +99,7 @@ in mkHome rec {
         vi-mode
       )
       source $ZSH/oh-my-zsh.sh
+      ${optionalString (zshTheme == "agnoster") "RPROMPT="}
       source ${pkgs.autojump}/share/autojump/autojump.zsh
 
       export EDITOR=${pkgs.neovim}/bin/nvim
