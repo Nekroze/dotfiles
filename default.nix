@@ -44,11 +44,6 @@ let
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
   };
-  zshOhMy= fetchgit {
-    url = "https://github.com/robbyrussell/oh-my-zsh.git";
-    rev = "ebda8af870acc295388ed187f0139a8bffa83196";
-    sha256 = "0ycsy3236pfw2sdc8qqjmnkq5yllgm2fh8lhi4zp9sc8jkq5by3s";
-  };
   gtkSolarized = ((pkgs.callPackage ./dotfiles/numix-solarized.nix) { });
   dotfiles = ./dotfiles;
   mkDesktop = name: exec: ''
@@ -87,7 +82,7 @@ in mkHome rec {
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
 
     ".zshrc".content = ''
-      export ZSH=${zshOhMy}
+      export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       ZSH_THEME="${zshTheme}"
       plugins=(
         common-aliases
