@@ -3,8 +3,8 @@ with import <nixhome> { inherit stdenv; inherit pkgs; };
 with lib;
 let
   ## Customizable
-  preferedFont = "Source Code Pro";
-  preferedShell = "fish";
+  preferedFont = "Fira Code";
+  preferedShell = "zsh";
   preferedEditor = "nvim";
   vifmTheme = "solarized-dark";
   zshTheme = "flazz";
