@@ -7,7 +7,7 @@ let
   preferedShell = "zsh";
   preferedEditor = "nvim";
   vifmTheme = "solarized-dark";
-  zshTheme = "flazz";
+  zshTheme = "agnoster";
   ## Repositories
   termiteSolarized = fetchgit {
     url = "https://github.com/alpha-omega/termite-colors-solarized.git";
