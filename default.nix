@@ -237,7 +237,6 @@ in mkHome rec {
     '';
     ".config/kitty/kitty.conf".content = ''
       shell ${preferedShell}
-      editor ${preferedEditor}
       font_family ${preferedFont}
       font_size				11.0
       cursor					#586e75
@@ -246,7 +245,6 @@ in mkHome rec {
       url_style				curly
       active_border_color		#859900
       inactive_border_color	#586e75
-      bell_border_color		#dc322f
       foreground				#839496
       background				#002b36
       selection_foreground	#657b83
