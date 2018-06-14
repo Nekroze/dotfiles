@@ -4,6 +4,7 @@ general {
 }
 
 order += "volume master"
+order += "cpu_temperature 1"
 order += "disk /"
 order += "ethernet enp2s0"
 order += "load"
@@ -38,4 +39,9 @@ volume master {
         device = "default"
         mixer = "Master"
         mixer_idx = 0
+}
+
+cpu_temperature 1 {
+        format = "T: %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
 }
