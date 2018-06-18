@@ -149,16 +149,17 @@ in mkHome rec {
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
     '';
     ".Xresources".content = ''
-      rofi.color-enabled:  true
-      rofi.combi-modi:     window,drun,ssh
-      rofi.modi:           combi
-      rofi.show:           combi
-      rofi.theme:          solarized
-      rofi.location:       0
-      rofi.font:           ${preferedFont} 10
-      rofi.terminal:       ${preferedTerminal}
-      rofi.case-sensitive: false
-      rofi.scroll-method:  1
+      rofi.color-enabled:     true
+      rofi.theme:             solarized
+      rofi.location:          0
+      rofi.font:              ${preferedFont} 10
+      rofi.terminal:          ${preferedTerminal}
+      rofi.case-sensitive:    false
+      rofi.scroll-method:     1
+      rofi.combi-modi:        window,drun,ssh
+      rofi.modi:              combi
+      rofi.parse-known-hosts: false
+      rofi.matching:          fuzzy
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
