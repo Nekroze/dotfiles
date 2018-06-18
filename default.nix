@@ -6,6 +6,7 @@ let
   preferedFont = "Fira Code";
   preferedShell = "zsh";
   preferedEditor = "nvim";
+  preferedTerminal = "kitty";
   vifmTheme = "solarized-dark";
   zshTheme = "agnoster";
   ## Repositories
@@ -148,11 +149,16 @@ in mkHome rec {
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
     '';
     ".Xresources".content = ''
-      rofi.color-enabled: true
-      rofi.color-window: #002b37, #002b37, #003642
-      rofi.color-normal: #002b37, #819396, #003643, #008ed4, #ffffff
-      rofi.color-active: #002b37, #008ed4, #003643, #008ed4, #66c6ff
-      rofi.color-urgent: #002b37, #da4281, #003643, #008ed4, #890661
+      rofi.color-enabled:  true
+      rofi.combi-modi:     window,drun,ssh
+      rofi.modi:           combi
+      rofi.show:           combi
+      rofi.theme:          solarized
+      rofi.location:       0
+      rofi.font:           ${preferedFont} 10
+      rofi.terminal:       ${preferedTerminal}
+      rofi.case-sensitive: false
+      rofi.scroll-method:  1
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
