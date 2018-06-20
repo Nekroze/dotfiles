@@ -32,6 +32,7 @@ endif
 
 Plug 'sjl/gundo.vim'
 Plug 'raimondi/delimitmate'
+Plug 'PotatoesMaster/i3-vim-syntax'
 
 if has('python') && executable('haxe')
 	Plug 'jdonaldson/vaxe'
