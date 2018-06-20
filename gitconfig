@@ -3,12 +3,12 @@
 	email = taylorl@benon.com
 [core]
 	editor = nvim
-    excludesfile = /home/taylorl/.gitignore
+	excludesfile = /home/taylorl/.gitignore
 [diff]
-	tool = vimdiff
+	tool = nvim -d
 [difftool]
 	prompt = false
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [include]
-    path = /home/taylorl/.local.gitconfig
+	path = /home/taylorl/.local.gitconfig
