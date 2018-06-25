@@ -23,6 +23,12 @@
 
 # Usage
 
+For now this repository must be cloned or linked to `~/.config/dotfiles` to funcion:
+
+```
+ $ git clone https://github.com/Nekroze/dotfiles.git ~/.config/dotfiles
+```
+
 This repo is designed for [nix-home](https://github.com/sheenobu/nix-home) but can be used without it.
 
 ```

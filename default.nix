@@ -45,8 +45,8 @@ let
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
   };
-  gtkSolarized = ((pkgs.callPackage ./dotfiles/numix-solarized.nix) { });
-  dotfiles = ./dotfiles;
+  gtkSolarized = ((pkgs.callPackage ./.config/dotfiles/numix-solarized.nix) { });
+  dotfiles = ./.config/dotfiles;
   mkDesktop = name: exec: ''
     [Desktop Entry]
     Type=Application
