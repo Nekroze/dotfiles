@@ -159,7 +159,7 @@ in mkHome rec {
       rofi.combi-modi:        window,drun,ssh
       rofi.modi:              combi
       rofi.parse-known-hosts: false
-      rofi.matching:          fuzzy
+      rofi.matching:          glob
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
     ".config/vifm/colors" = vifmColors;
     ".config/dunst/dunstrc" = "${dotfiles}/dunstrc";
