@@ -121,7 +121,7 @@ in mkHome rec {
       }
       bgnotify_threshold=10
       source ${zshNotify}/bgnotify.plugin.zsh
-      export GOPATH="$HOME/go"
+      export GOPATH="$HOME/.go"
       export PATH="$PATH:$GOPATH/bin"
       if command -v dub >/dev/null 2>&1; then
         ls ~/.dub/packages/dcd-* >/dev/null 2>&1 || dub fetch dcd
@@ -194,7 +194,7 @@ in mkHome rec {
     ".themes/numix-solarized-dark" = gtkSolarized;
     ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
     ".config/fish/conf.d/go.fish" = writeFishScript "go.fish" ''
-      set -x GOPATH /home/$USER/go
+      set -x GOPATH $HOME/.go
       set -x PATH $PATH $GOPATH/bin
     '';
     ".config/fish/conf.d/vi.fish" = writeFishScript "vi.fish" ''
