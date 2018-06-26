@@ -156,8 +156,7 @@ in mkHome rec {
       rofi.terminal:          ${preferedTerminal}
       rofi.case-sensitive:    false
       rofi.scroll-method:     1
-      rofi.combi-modi:        window,drun,ssh
-      rofi.modi:              combi
+      rofi.modi:              drun
       rofi.parse-known-hosts: false
       rofi.matching:          glob
     '' + builtins.readFile "${solarizedXresources}/Xresources.dark";
