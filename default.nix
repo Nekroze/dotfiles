@@ -242,6 +242,15 @@ in mkHome rec {
           "language.go.languageServer.rootFiles": [".git"],
           "language.go.languageServer.command": "/home/${user}/go/bin/go-langserver",
           "language.go.languageServer.arguments": ["-gocodecompletion", "-freeosmemory", "false"],
+          "language.php.languageServer.rootFiles": [".git"],
+          "language.php.languageServer.command": "/home/${user}/git/github.com/Nekroze/dapper/dapper",
+          "language.php.languageServer.arguments": ["lsp-php"],
+          "language.sh.languageServer.rootFiles": [".git", "/home/${user}"],
+          "language.sh.languageServer.command": "/home/${user}/git/github.com/Nekroze/dapper/dapper",
+          "language.sh.languageServer.arguments": ["lsp-bash"],
+          "language.dockerfile.languageServer.rootFiles": [".git"],
+          "language.dockerfile.languageServer.command": "/home/${user}/git/github.com/Nekroze/dapper/dapper",
+          "language.dockerfile.languageServer.arguments": ["lsp-dockerfile"],
       }
     '';
     ".npmrc".content = ''
