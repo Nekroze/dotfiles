@@ -201,7 +201,7 @@ in mkHome rec {
     ".elvish/rc.elv" = "${dotfiles}/rc.elv";
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/numix-solarized-dark" = gtkSolarized;
-    ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
+    #".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
     ".config/fish/conf.d/go.fish" = writeFishScript "go.fish" ''
       set -x GOPATH $HOME/.go
       set -x PATH $PATH $GOPATH/bin
