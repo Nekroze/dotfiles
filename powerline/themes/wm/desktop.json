@@ -1,0 +1,67 @@
+{
+    "segments": {
+        "right": [
+            {
+                "function":             "powerline.segments.common.env.clip",
+                "priority":             50
+            },
+            {
+                "function":             "powerline.segments.common.time.date",
+                "name":                 "date",
+                "args": {
+                    "format":           "%H:%M",
+                    "istime":           true
+                },
+                "priority":             20
+            },
+            {
+                "function":             "powerline.segments.common.time.date",
+                "args": {
+                    "format":           "%d-%m"
+                },
+                "priority":             10
+            }
+        ],
+        "left": [
+            {
+                "function":             "powerline.segments.i3wm.mode",
+                "args": {
+                    "names": {
+                        "default":      null,
+                        "resize":       "Resize"
+                    }
+                },
+                "priority":             1
+            },
+            {
+                "function":             "powerline.segments.i3wm.workspaces",
+                "exclude_modes":        [ "default" ],
+                "draw_inner_divider":   true,
+                "draw_soft_divider":    true,
+                "args": {
+                    "separator":        " ",
+                    "show_multiple_icons": false,
+                    "show_dummy_workspace": true,
+                    "show_output":      true
+                },
+                "priority":             30
+            },
+            {
+                "function":             "powerline.segments.i3wm.workspaces",
+                "include_modes":        [ "default" ],
+                "draw_inner_divider":   true,
+                "draw_soft_divider":    true,
+                "args": {
+                    "separator":        " ",
+                    "show_dummy_workspace": true,
+                    "show_output":      true
+                },
+                "priority":             30
+            },
+            {
+                "function":             "powerline.segments.i3wm.scratchpad",
+                "priority":             30
+            }
+        ]
+    }
+}

@@ -1,0 +1,265 @@
+{
+    "name":                     "solarized",
+    "groups": {
+        "date": {
+            "fg":               "base0",
+            "bg":               "base02"
+        },
+        "time:divider": {
+            "fg":               "base0",
+            "bg":               "base02"
+        },
+        "clip": {
+            "fg":               "base0",
+            "bg":               "base02",
+            "click": {
+                "left":         "xsel -cb"
+            }
+        },
+        "volume_gradient": {
+            "fg":               "white_red",
+            "bg":               "base02",
+            "click": {
+                "scroll up":    "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+                "scroll down":  "pactl set-sink-volume @DEFAULT_SINK@ -1%"
+            }
+        },
+        "player": {
+            "fg":               "base1",
+            "bg":               "base02",
+            "click": {
+                "left":         "xdotool key XF86AudioPlay",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "player:next": {
+            "fg":               "base1",
+            "bg":               "base02",
+            "click": {
+                "left":         "xdotool key XF86AudioNext"
+            }
+        },
+        "player:previous": {
+            "fg":               "base1",
+            "bg":               "base02",
+            "click": {
+                "left":         "xdotool key XF86AudioPrev"
+            }
+        },
+        "workspace": {
+            "fg":               "base1",
+            "bg":               "base02",
+            "click": {
+                "left":         "i3-msg workspace {workspace_name}",
+                "right":        "i3-msg move to workspace {workspace_name}"
+            }
+        },
+        "workspace:focused": {
+            "fg":               "base02",
+            "bg":               "base1"
+        },
+        "workspace:visible": {
+            "fg":               "base02",
+            "bg":               "base1"
+        },
+        "workspace:urgent": {
+            "bg":               "base02",
+            "fg":               "0xffaf00",
+            "click": {
+                "left":         "i3-msg workspace {workspace_name}",
+                "right":        "i3-msg move to workspace {workspace_name}"
+            }
+        },
+        "scratchpad": {
+            "fg":               "base1",
+            "bg":               "base02",
+            "click": {
+                "left":         "i3-msg scratchpad show",
+                "right":        "i3-msg move to scratchpad"
+            }
+        },
+        "scratchpad:focused": {
+            "fg":               "base02",
+            "bg":               "base1",
+            "click": {
+                "left":         "i3-msg scratchpad show",
+                "right":        "i3-msg move to scratchpad"
+            }
+        },
+        "scratchpad:visible":   "scratchpad:focused",
+        "scratchpad:urgent": {
+            "bg":               "base02",
+            "fg":               "brightorange",
+            "click": {
+                "left":         "i3-msg scratchpad show",
+                "right":        "i3-msg move to scratchpad"
+            }
+        },
+        "output": {
+            "bg":               "base02",
+            "fg":               "base0"
+        },
+        "output:status": {
+            "bg":               "base02",
+            "fg":               "base0",
+            "click": {
+                "left":         "#bar;pass_oneshot:output:{output_name}:toggle",
+                "middle":       "#bar;pass_oneshot:ch_toggle"
+            }
+        },
+        "output:mirror_state": {
+            "bg":               "base02",
+            "fg":               "base0",
+            "click": {
+                "left":         "#bar;pass_oneshot:mode:toggle",
+                "middle":       "#bar;pass_oneshot:ch_toggle"
+            }
+        },
+        "output:short":         "output:mirror_state",
+        "srot":                 "base0",
+        "srot:mode": {
+            "bg":               "base02",
+            "fg":               "base0",
+            "click": {
+                "left":         "#bar;pass_oneshot:toggle_rot",
+                "middle":       "#bar;pass_oneshot:toggle_controls:{output}"
+            }
+        },
+        "srot:tc": {
+            "bg":               "base02",
+            "fg":               "base0",
+            "click": {
+                "left":         "#bar;pass_oneshot:capture_input:{output}",
+                "middle":       "#bar;pass_oneshot:toggle_controls:{output}"
+            }
+        },
+        "srot:rc": {
+            "bg":               "base02",
+            "fg":               "base0",
+            "click": {
+                "left":         "#bar;pass_oneshot:capture:{output}",
+                "middle":       "#bar;pass_oneshot:toggle_controls:{output}"
+            }
+        },
+        "appoint": {
+            "bg":               "base02",
+            "fg":               "base1",
+            "click": {
+                "left":         "#bar;ch_toggle"
+            }
+        },
+        "appoint:urgent": {
+            "bg":               "base02",
+            "fg":               "base0",
+            "click": {
+                "left":         "#bar;ch_toggle"
+            }
+        },
+        "appoint:error": {
+            "fg":               "base1",
+            "bg":               "red",
+            "click": {
+                "right":        "powerline-gcal-auth '<insert client_id here>' '<insert client_secrect here>'",
+                "left":         "#bar;ch_toggle"
+            }
+        },
+        "mode":                 {
+            "fg":               "red",
+            "bg":               "base02"
+		},
+        "active_window_title":  "base1",
+        "hostname": {
+            "fg":               "base01",
+            "bg":               "base03",
+            "click": {
+                "left":         "#bar;restart"
+            }
+        },
+        "wireless:quality": {
+            "fg":               "base1",
+            "bg":               "base02",
+            "click": {
+                "left":         "#bar;ch_toggle"
+            }
+        },
+        "launcher": {
+            "bg":               "base03",
+            "fg":               "base01",
+            "click": {
+                "left":         "#bar;ch_toggle",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "launcher:terminal": {
+            "bg":               "base03",
+            "fg":               "base01",
+            "click": {
+                "left":         "i3-sensible-terminal",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "launcher:files": {
+            "bg":               "base03",
+            "fg":               "base01",
+            "click": {
+                "left":         "xdg-open './'",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "launcher:browser": {
+            "bg":               "base03",
+            "fg":               "base01",
+            "click": {
+                "left":         "xdg-open 'https://'",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "power": {
+            "bg":               "base03",
+            "fg":               "base01",
+            "click": {
+                "left":         "#bar;ch_toggle",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "power:logout": {
+            "bg":               "base03",
+            "fg":               "darkorange",
+            "click": {
+                "left":         "logout",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "power:poweroff": {
+            "bg":               "base03",
+            "fg":               "mediumred",
+            "click": {
+                "left":         "poweroff",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "power:reboot": {
+            "bg":               "base03",
+            "fg":               "mediumpurple",
+            "click": {
+                "left":         "reboot",
+                "middle":       "#bar;ch_toggle"
+            }
+        },
+        "clicks_off": {
+            "bg":               "base01",
+            "fg":               "base03",
+            "click": {
+                "right":        "#bar;toggle_clicks"
+            }
+        },
+        "clicks_on": {
+            "bg":               "base03",
+            "fg":               "base01",
+            "click": {
+                "right":        "#bar;toggle_clicks"
+            }
+        }
+    }
+}
+

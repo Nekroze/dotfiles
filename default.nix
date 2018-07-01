@@ -300,5 +300,6 @@ in mkHome rec {
       color15	#93a1a1
     '';
     ".config/systemd/user/i3wsr.service".content = writeSystemdService "i3wsr" "/bin/sh ${dotfiles}/i3wsr-runner.sh";
+    ".config/powerline" = "${dotfiles}/powerline";
   };
 }
