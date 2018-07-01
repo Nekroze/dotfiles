@@ -15,6 +15,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
 Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_powerline_fonts = 1
+let g:airline_solarized_bg='dark'
+let g:airline_theme='solarized'
 
 Plug 'vim-syntastic/syntastic'
 let g:syntastic_check_on_open = 1
