@@ -31,7 +31,7 @@ if executable('go')
 endif
 
 Plug 'sjl/gundo.vim'
-Plug 'raimondi/delimitmate'
+Plug 'townk/vim-autoclose'
 Plug 'PotatoesMaster/i3-vim-syntax'
 
 if has('python') && executable('haxe')
