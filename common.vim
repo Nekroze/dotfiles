@@ -33,6 +33,9 @@ endif
 Plug 'sjl/gundo.vim'
 Plug 'townk/vim-autoclose'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'w0rp/ale'
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
 
 if has('python') && executable('haxe')
 	Plug 'jdonaldson/vaxe'
