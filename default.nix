@@ -113,11 +113,11 @@ in mkHome rec {
       ${optionalString (zshTheme == "agnoster") "RPROMPT="}
       source ${pkgs.autojump}/share/autojump/autojump.zsh
 
-      export EDITOR=${pkgs.neovim}/bin/nvim
+      export EDITOR=${preferedEditor}
       alias realvim=$(which vim)
-      alias nvim=${pkgs.neovim}/bin/nvim
-      alias vim=${pkgs.neovim}/bin/nvim
-      alias v=${pkgs.neovim}/bin/nvim
+      alias nvim=nvim
+      alias vim=nvim
+      alias v=nvim
       if [ "$TERM" = 'xterm-termite' ] && ! [ -f "$HOME/.terminfo/x/xterm-termite" ]; then
         export TERM='xterm-256color'
       fi
@@ -219,7 +219,7 @@ in mkHome rec {
     ".config/fish/functions/lx.fish" = writeFishAlias "lx" "${pkgs.exa}/bin/exa -bghHliS";
     ".config/fish/functions/lt.fish" = writeFishAlias "lt" "${pkgs.exa}/bin/exa -lT";
     ".config/fish/functions/rvim.fish" = writeFishAlias "rvim" "${pkgs.vim}/bin/vim $argv";
-    ".config/fish/functions/nvim.fish" = writeFishAlias "nvim" "${pkgs.neovim}/bin/nvim $argv";
+    ".config/fish/functions/nvim.fish" = writeFishAlias "nvim" "nvim $argv";
     ".config/fish/functions/vim.fish" = writeFishAlias "vim" "nvim $argv";
     ".config/fish/functions/v.fish" = writeFishAlias "v" "nvim $argv";
     ".config/oni/config.tsx".content = ''
