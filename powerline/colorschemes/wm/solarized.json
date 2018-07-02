@@ -1,12 +1,28 @@
 {
     "name":                     "solarized",
     "groups": {
+        "internal_ip": {
+            "fg":               "base0",
+            "bg":               "base02"
+        },
+        "system_load": {
+            "fg":               "base0",
+            "bg":               "base02"
+        },
+        "system_load_gradient": {
+            "fg":               "green_yellow_orange_red",
+            "bg":               "base02"
+        },
+        "background:divider": {
+            "fg":               "base1",
+            "bg":               "base02"
+        },
         "date": {
             "fg":               "base0",
             "bg":               "base02"
         },
         "time:divider": {
-            "fg":               "base0",
+            "fg":               "base1",
             "bg":               "base02"
         },
         "clip": {

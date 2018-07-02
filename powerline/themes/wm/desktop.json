@@ -1,10 +1,20 @@
 {
     "segments": {
         "right": [
-            {
-                "function":             "powerline.segments.common.env.clip",
-                "priority":             50
-            },
+			{
+				"function": "powerline.segments.common.net.internal_ip",
+                "args": {
+					"interface": "default_gateway"
+                },
+                "priority":             40
+			},
+			{
+				"function": "powerline.segments.common.sys.system_load",
+                "args": {
+					"threshold_bad": "4.0"
+                },
+                "priority":             30
+			},
             {
                 "function":             "powerline.segments.common.time.date",
                 "name":                 "date",
