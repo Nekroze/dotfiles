@@ -63,7 +63,7 @@
             }
         },
         "workspace": {
-            "fg":               "base1",
+            "fg":               "base01",
             "bg":               "base02",
             "click": {
                 "left":         "i3-msg workspace {workspace_name}",
@@ -72,15 +72,15 @@
         },
         "workspace:focused": {
             "fg":               "base02",
-            "bg":               "base1"
+            "bg":               "green"
         },
         "workspace:visible": {
             "fg":               "base02",
-            "bg":               "base1"
+            "bg":               "base01"
         },
         "workspace:urgent": {
-            "bg":               "base02",
-            "fg":               "0xffaf00",
+            "fg":               "base02",
+            "bg":               "orange",
             "click": {
                 "left":         "i3-msg workspace {workspace_name}",
                 "right":        "i3-msg move to workspace {workspace_name}"
