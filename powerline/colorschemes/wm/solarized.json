@@ -63,7 +63,7 @@
             }
         },
         "workspace": {
-            "fg":               "base01",
+            "fg":               "base0",
             "bg":               "base02",
             "click": {
                 "left":         "i3-msg workspace {workspace_name}",
@@ -71,15 +71,15 @@
             }
         },
         "workspace:focused": {
-            "fg":               "base02",
+            "fg":               "base03",
             "bg":               "green"
         },
         "workspace:visible": {
-            "fg":               "base02",
+            "fg":               "base03",
             "bg":               "base01"
         },
         "workspace:urgent": {
-            "fg":               "base02",
+            "fg":               "base03",
             "bg":               "orange",
             "click": {
                 "left":         "i3-msg workspace {workspace_name}",
@@ -112,8 +112,8 @@
             }
         },
         "output": {
-            "bg":               "base02",
-            "fg":               "base0"
+            "bg":               "cyan",
+            "fg":               "base03"
         },
         "output:status": {
             "bg":               "base02",
@@ -180,8 +180,8 @@
             }
         },
         "mode":                 {
-            "fg":               "red",
-            "bg":               "base02"
+            "fg":               "base03",
+            "bg":               "magenta"
 		},
         "active_window_title":  "base1",
         "hostname": {

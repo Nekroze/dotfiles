@@ -50,9 +50,9 @@
                 "draw_soft_divider":    true,
                 "args": {
                     "separator":        " ",
-                    "show_multiple_icons": false,
-                    "show_dummy_workspace": true,
-                    "show_output":      true
+                    "show_icons": false,
+                    "show_dummy_workspace": false,
+                    "show_output":      false
                 },
                 "priority":             30
             },
@@ -63,8 +63,9 @@
                 "draw_soft_divider":    true,
                 "args": {
                     "separator":        " ",
-                    "show_dummy_workspace": true,
-                    "show_output":      true
+                    "show_icons": false,
+                    "show_dummy_workspace": false,
+                    "show_output":      false
                 },
                 "priority":             30
             },
