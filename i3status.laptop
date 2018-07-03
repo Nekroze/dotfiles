@@ -6,16 +6,26 @@ general {
 order += "volume master"
 order += "cpu_temperature 1"
 order += "disk /"
-order += "ethernet enp2s0"
+order += "wireless wlp1s0"
 order += "load"
+order += "battery 0"
 order += "tztime local"
 order += "tztime local_date"
 
+wireless wlp1s0 {
+        format_up = "W: (%quality at %essid, %bitrate) %ip"
+        format_down = "W: down"
+}
 
-ethernet enp2s0 {
-        # if you use %speed, i3status requires the cap_net_admin capability
-        format_up = "E: %ip"
-        format_down = "E: down"
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "CHR"
+        status_bat = "BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT/uevent"
+        low_threshold = 10
 }
 
 tztime local_date {
