@@ -1,0 +1,132 @@
+{
+    "segments": {
+        "right": [
+			{
+				"function": "powerline.segments.common.net.external_ip"
+			},
+			{
+				"function": "powerline.segments.common.net.internal_ip",
+                "args": {
+					"interface": "default_gateway"
+                }
+			},
+            {
+                "function":             "powerline.segments.common.net.wireless",
+                "args": {
+                    "format":           " {quality:3.0%} at {essid}",
+                    "short_format":     " {quality:3.0%}",
+					"format_down":      "X"
+                }
+            },
+            {
+                "function":             "powerline.segments.common.volume.vol",
+                "args": {
+                    "format":           " {volume:3.0%}",
+                    "format_muted":     null
+                }
+            },
+			{
+				"function": "powerline.segments.common.sys.system_load",
+                "args": {
+					"threshold_bad": "4.0"
+                }
+			},
+            {
+                "function":             "powerline.segments.common.bat.battery",
+                "args": {
+					"bat": "",
+                    "format":           "",
+                    "original_health":  true
+                }
+            },
+            {
+                "draw_soft_divider":    false,
+                "function":             "powerline.segments.common.bat.battery",
+                "args": {
+					"bat": "",
+                    "name":             "icon",
+                    "original_health":  true,
+                    "icons": {
+                        "0":            " ",
+                        "25":           " ",
+                        "50":           " ",
+                        "75":           " ",
+                        "100":          " ",
+                        "full":         " ",
+                        "online":       " "
+                    }
+                }
+            },
+            {
+                "draw_soft_divider":    false,
+                "function":             "powerline.segments.common.bat.battery",
+                "args": {
+					"bat": "",
+                    "format":           "{capacity:3.0%}",
+                    "original_health":  true
+                }
+            },
+            {
+                "draw_soft_divider":    true,
+                "function":             "powerline.segments.common.bat.battery",
+                "args": {
+					"bat": "",
+                    "name":             "rem_time",
+                    "original_health":  true
+                }
+            },
+            {
+                "function":             "powerline.segments.common.time.date",
+                "name":                 "date",
+                "args": {
+                    "format":           "%H:%M",
+                    "istime":           true
+                }
+            },
+            {
+                "function":             "powerline.segments.common.time.date",
+                "args": {
+                    "format":           "%d-%m"
+                }
+            }
+        ],
+        "left": [
+            {
+                "function":             "powerline.segments.i3wm.mode",
+                "args": {
+                    "names": {
+                        "default":      null,
+                        "resize":       "Resize"
+                    }
+                }
+            },
+            {
+                "function":             "powerline.segments.i3wm.workspaces",
+                "exclude_modes":        [ "default" ],
+                "draw_inner_divider":   true,
+                "draw_soft_divider":    true,
+                "args": {
+                    "separator":        " ",
+                    "show_icons": false,
+                    "show_dummy_workspace": false,
+                    "show_output":      false
+                }
+            },
+            {
+                "function":             "powerline.segments.i3wm.workspaces",
+                "include_modes":        [ "default" ],
+                "draw_inner_divider":   true,
+                "draw_soft_divider":    true,
+                "args": {
+                    "separator":        " ",
+                    "show_icons": false,
+                    "show_dummy_workspace": false,
+                    "show_output":      false
+                }
+            },
+            {
+                "function":             "powerline.segments.i3wm.scratchpad"
+            }
+        ]
+    }
+}

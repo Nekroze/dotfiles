@@ -133,22 +133,7 @@ in mkHome rec {
       bgnotify_threshold=10
       source ${zshNotify}/bgnotify.plugin.zsh
       export GOPATH="$HOME/.go"
-      export PATH="$PATH:$GOPATH/bin"
-      if command -v dub >/dev/null 2>&1; then
-        ls ~/.dub/packages/dcd-* >/dev/null 2>&1 || dub fetch dcd
-        ls ~/.dub/packages/dscanner* >/dev/null 2>&1 || dub fetch dscanner
-        ls ~/.dub/packages/dfmt* >/dev/null 2>&1 || dub fetch dfmt
-      fi
-      if command -v opam >/dev/null 2>&1; then
-        source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-      fi
-      function df_upload() {
-        rsync --delete -avh ~/.local/share/df_linux/data/save ~/keybase/private/nekroze/df_saves
-      }
-      function df_download() {
-        rsync --delete -avh ~/keybase/private/nekroze/df_saves/save ~/.local/share/df_linux/data
-      }
-      export PATH="$PATH:$HOME/.bin"
+      export PATH="$PATH:$GOPATH/bin:$HOME/.bin"
       export WORKON_HOME=$HOME/.pyvenvs
       mkdir -p $WORKON_HOME
       [ "$IN_NIX_SHELL" ] && export PS1="nix-shell@$PS1"
@@ -204,7 +189,7 @@ in mkHome rec {
     ".elvish/rc.elv" = "${dotfiles}/rc.elv";
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/numix-solarized-dark" = gtkSolarized;
-    #".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
+    ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
     ".config/fish/conf.d/go.fish" = writeFishScript "go.fish" ''
       set -x GOPATH $HOME/.go
       set -x PATH $PATH $GOPATH/bin
