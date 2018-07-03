@@ -6,7 +6,7 @@
             "bg":               "green_yellow_orange_red"
         },
         "external_ip": {
-            "fg":               "base0",
+            "fg":               "base01",
             "bg":               "base02"
         },
         "internal_ip": {
@@ -18,8 +18,8 @@
             "bg":               "base02"
         },
         "system_load_gradient": {
-            "fg":               "green_yellow_orange_red",
-            "bg":               "base02"
+            "bg":               "green_yellow_orange_red",
+            "fg":               "base03"
         },
         "background:divider": {
             "fg":               "base1",
@@ -30,8 +30,8 @@
             "bg":               "base00"
         },
         "time:divider": {
-            "fg":               "base1",
-            "bg":               "base02"
+            "fg":               "base03",
+            "bg":               "base00"
         },
         "clip": {
             "fg":               "base0",
@@ -130,8 +130,8 @@
             "bg":               "base03"
         },
         "wireless:quality": {
-            "fg":               "base1",
-            "bg":               "base02"
+            "fg":               "base03",
+            "bg":               "violet"
         },
         "power": {
             "bg":               "base03",
