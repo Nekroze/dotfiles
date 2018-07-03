@@ -2,7 +2,7 @@
     "name":                     "solarized",
     "groups": {
         "battery_gradient": {
-            "fg":               "base02",
+            "fg":               "base03",
             "bg":               "green_yellow_orange_red"
         },
         "external_ip": {
@@ -27,7 +27,7 @@
         },
         "date": {
             "fg":               "base03",
-            "bg":               "base01"
+            "bg":               "base00"
         },
         "time:divider": {
             "fg":               "base1",
