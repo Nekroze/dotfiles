@@ -1,0 +1,47 @@
+general {
+        colors = true
+        interval = 5
+}
+
+order += "volume master"
+order += "cpu_temperature 1"
+order += "disk /"
+order += "ethernet enp2s0"
+order += "load"
+order += "tztime local"
+order += "tztime local_date"
+
+
+ethernet enp2s0 {
+        # if you use %speed, i3status requires the cap_net_admin capability
+        format_up = "E: %ip"
+        format_down = "E: down"
+}
+
+tztime local_date {
+        format = "%Y-%m-%d"
+}
+
+tztime local {
+        format = "%H:%M"
+}
+
+load {
+        format = "L: %1min"
+}
+
+disk "/" {
+        format = "%free"
+}
+
+volume master {
+        format = "♪: %volume"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+cpu_temperature 1 {
+        format = "T: %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+}
