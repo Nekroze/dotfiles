@@ -28,7 +28,7 @@
 			{
 				"function": "powerline.segments.common.sys.system_load",
                 "args": {
-					"threshold_bad": "4.0"
+					"threshold_bad": "1.0"
                 }
 			},
             {
