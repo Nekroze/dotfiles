@@ -38,8 +38,8 @@
             "bg":               "base02"
         },
         "volume_gradient": {
-            "fg":               "white_red",
-            "bg":               "base02"
+            "fg":               "yellow_orange_red",
+            "bg":               "base03"
         },
         "player": {
             "fg":               "base1",
