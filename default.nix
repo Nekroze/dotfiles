@@ -1,3 +1,7 @@
+{
+  username ? "nekroze",
+  variant ? "laptop"
+}:
 with import <nixpkgs> {};
 with import <nixhome> { inherit stdenv; inherit pkgs; };
 with lib;
@@ -86,7 +90,7 @@ let
   '';
 
 in mkHome rec {
-  user = "taylorl";
+  user = username;
   files = {
     ".config/termite/config".content = ''
       [options]
@@ -288,6 +292,22 @@ in mkHome rec {
       color15	#93a1a1
     '';
     ".config/systemd/user/i3wsr.service".content = writeSystemdService "i3wsr" "/bin/sh ${dotfiles}/i3wsr-runner.sh";
-    ".config/powerline" = "${dotfiles}/powerline";
+    ".config/powerline/colors.json" = "${dotfiles}/powerline/colors.json";
+    ".config/powerline/themes" = "${dotfiles}/powerline/themes";
+    ".config/powerline/colorschemes" = "${dotfiles}/powerline/colorschemes";
+    ".config/powerline/config.json".content = ''
+      {
+        "common": {
+            "term_truecolor":       false
+        },
+        "ext": {
+            "wm": {
+                "colorscheme":      "solarized",
+                "theme":            "${variant}",
+                "update_interval":  2
+            }
+        }
+      }
+    '';
   };
 }
