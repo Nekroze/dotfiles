@@ -147,7 +147,6 @@ in mkHome rec {
       alias lx="${pkgs.exa}/bin/exa -bghHliS"
       alias lt="${pkgs.exa}/bin/exa -lT"
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
-      source "${dotfiles}/promptline.sh"
       source "${dotfiles}/powerline-go.zsh"
     '';
     ".Xresources".content = ''
