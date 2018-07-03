@@ -5,6 +5,10 @@
             "fg":               "base02",
             "bg":               "green_yellow_orange_red"
         },
+        "external_ip": {
+            "fg":               "base0",
+            "bg":               "base02"
+        },
         "internal_ip": {
             "fg":               "base0",
             "bg":               "base02"
