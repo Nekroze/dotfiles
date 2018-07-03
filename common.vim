@@ -37,6 +37,7 @@ if executable('go')
 	endif
 endif
 
+Plug 'edkolev/promptline.vim'
 Plug 'sjl/gundo.vim'
 Plug 'townk/vim-autoclose'
 Plug 'PotatoesMaster/i3-vim-syntax'

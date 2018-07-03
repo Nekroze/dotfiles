@@ -158,6 +158,7 @@ in mkHome rec {
       alias lx="${pkgs.exa}/bin/exa -bghHliS"
       alias lt="${pkgs.exa}/bin/exa -lT"
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
+      source "${dotfiles}/promptline.sh"
       source "${dotfiles}/powerline-go.zsh"
     '';
     ".Xresources".content = ''
@@ -273,7 +274,7 @@ in mkHome rec {
       active_border_color		#859900
       inactive_border_color	#586e75
       foreground				#839496
-      background				#002b36
+      background				#073642
       selection_foreground	#657b83
       selection_background	#fdf6e3
       # black
