@@ -246,35 +246,61 @@ in mkHome rec {
     ".config/fish/functions/vim.fish" = writeFishAlias "vim" "nvim $argv";
     ".config/fish/functions/v.fish" = writeFishAlias "v" "nvim $argv";
     ".config/oni/config.tsx".content = ''
-      import * as React from "react"
-      import * as Oni from "oni-api"
+      import * as React from 'react';
+      import * as Oni from 'oni-api';
       export const activate = (oni: Oni.Plugin.Api) => {
-          oni.editors.anyEditor.onModeChanged.subscribe((newMode) => {
-              if (newMode === "insert") {
-                  oni.configuration.setValues({"vim.setting.relativenumber": false})
+          oni.editors.anyEditor.onModeChanged.subscribe(newMode => {
+              if (newMode === 'insert') {
+                  oni.configuration.setValues({'vim.setting.relativenumber': false});
               } else {
-                  oni.configuration.setValues({"vim.setting.relativenumber": true})
+                  oni.configuration.setValues({'vim.setting.relativenumber': true});
               }
-          })
-      }
+          });
+      };
       export const configuration = {
-          "ui.colorscheme": "solarized8_dark",
-          "editor.fontFamily": "Fira Code",
-          "oni.loadInitVim": true,
-          "oni.hideMenu": true,
-          "language.go.languageServer.rootFiles": [".git"],
-          "language.go.languageServer.command": "/home/${user}/go/bin/go-langserver",
-          "language.go.languageServer.arguments": ["-gocodecompletion", "-freeosmemory", "false"],
-          "language.php.languageServer.rootFiles": [".git"],
-          "language.php.languageServer.command": "/home/${user}/git/github.com/Nekroze/dapper/dapper",
-          "language.php.languageServer.arguments": ["lsp-php"],
-          "language.sh.languageServer.rootFiles": [".git", "/home/${user}"],
-          "language.sh.languageServer.command": "/home/${user}/git/github.com/Nekroze/dapper/dapper",
-          "language.sh.languageServer.arguments": ["lsp-bash"],
-          "language.dockerfile.languageServer.rootFiles": [".git"],
-          "language.dockerfile.languageServer.command": "/home/${user}/git/github.com/Nekroze/dapper/dapper",
-          "language.dockerfile.languageServer.arguments": ["lsp-dockerfile"],
-      }
+          'ui.colorscheme': 'solarized8_dark',
+          'editor.fontFamily': "'Fira Code', FiraCode, Fira-Code",
+          'oni.loadInitVim': true,
+          'oni.hideMenu': true,
+          'oni.plugins.prettier': {
+              settings: {
+                  tabWidth: 4,
+                  useTabs: true,
+                  singleQuote: true,
+                  bracketSpacing: false,
+                  printWidth: 160
+              },
+              formatOnSave: false,
+              enabled: true
+          },
+          'language.php.languageServer.rootFiles': ['.git'],
+          'language.php.languageServer.command': '/home/${user}/git/github.com/Nekroze/dapper/dapper',
+          'language.php.languageServer.arguments': ['lsp-php'],
+          'language.sh.languageServer.rootFiles': ['.git', '/home/taylorl'],
+          'language.sh.languageServer.command': '/home/${user}/git/github.com/Nekroze/dapper/dapper',
+          'language.sh.languageServer.arguments': ['lsp-bash'],
+          'language.dockerfile.languageServer.rootFiles': ['.git'],
+          'language.dockerfile.languageServer.command': '/home/${user}/git/github.com/Nekroze/dapper/dapper',
+          'language.dockerfile.languageServer.arguments': ['lsp-dockerfile'],
+          'language.go.languageServer.rootFiles': ['.git'],
+          'language.go.languageServer.command': '/home/${user}/.go/bin/go-langserver',
+          'language.go.languageServer.arguments': [
+              '-gocodecompletion',
+              '-freeosmemory',
+              'false'
+          ]
+          "editor.split.mode": "oni",
+          "oni.exclude": [
+              "node_modules",
+              "vendor",
+              "vendor_perl",
+              ".git",
+          ],
+          "editor.formatting.formatOnSwitchToNormalMode": true,
+          "workspace.autoDetectWorkspace": "always",
+          "sidebar.default.open": false,
+          "experimental.markdownPreview.enabled": true,
+      };
     '';
     ".npmrc".content = ''
       prefix=/home/${user}/.npm-packages
