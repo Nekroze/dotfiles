@@ -124,6 +124,29 @@ in mkHome rec {
       source $ZSH/oh-my-zsh.sh
       ${optionalString (zshTheme == "agnoster") "RPROMPT="}
       source ${pkgs.autojump}/share/autojump/autojump.zsh
+      export SPACESHIP_GIT_BRANCH_COLOR=green
+      export SPACESHIP_GIT_STATUS_COLOR=yellow
+      export SPACESHIP_EXIT_CODE_SHOW=true
+      export SPACESHIP_EXEC_TIME_ELAPSED=1
+      export SPACESHIP_CHAR_SYMBOL="=> "
+      export SPACESHIP_PROMPT_ORDER=(
+        dir           # Current directory section
+        git           # Git section (git_branch + git_status)
+        elixir        # Elixir section
+        golang        # Go section
+        php           # PHP section
+        rust          # Rust section
+        docker        # Docker section
+        kubecontext   # Kubectl context section
+        line_sep      # Line break
+        vi_mode       # Vi-mode indicator
+        jobs          # Background jobs indicator
+        char          # Prompt character
+      )
+      export SPACESHIP_RPROMPT_ORDER=(
+        exit_code     # Exit code section
+        exec_time     # Execution time
+      )
 
       export EDITOR=${preferedEditor}
       alias realvim=$(which vim)
