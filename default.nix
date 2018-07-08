@@ -12,7 +12,7 @@ let
   preferedEditor = "nvim";
   preferedTerminal = "kitty";
   vifmTheme = "solarized-dark";
-  zshTheme = "agnoster";
+  zshTheme = "spaceship";
   ## Repositories
   termiteSolarized = fetchgit {
     url = "https://github.com/alpha-omega/termite-colors-solarized.git";
@@ -48,6 +48,11 @@ let
     url = "https://github.com/kiith-sa/DSnips.git";
     rev = "dc7239e94a3d52af1f63110344adb8b9f5868a81";
     sha256 = "1y3nwbqh9lrxw4l7jn84s67s7bfyvsng71rz2lckg38j33dr7xyy";
+  };
+  spaceship = fetchgit {
+    url = "https://github.com/denysdovhan/spaceship-prompt.git";
+    rev = "1b8a45b84025af571ccdeb813e78d40af739866d";
+    sha256 = "18gk4zxxv31mkay1lj48cwm0zxz64vmw0c4183j46sdgq7qxija0";
   };
   gtkSolarized = ((pkgs.callPackage ./.config/dotfiles/numix-solarized.nix) { });
   dotfiles = ./.config/dotfiles;
@@ -97,9 +102,11 @@ in mkHome rec {
       font = ${preferedFont} 10
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
 
+    ".local/share/oh-my-zsh/themes/spaceship.zsh-theme" = "${spaceship}/spaceship.zsh-theme";
     ".zshrc".content = ''
       export DEFAULT_USER=${user}
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+      export ZSH_CUSTOM="$HOME/.local/share/oh-my-zsh/"
       ZSH_THEME="${zshTheme}"
       plugins=(
         common-aliases
