@@ -225,6 +225,8 @@ in mkHome rec {
     ".vim/UtiliSnips/d.snippets" = "${vimDsnips}/d.snippets";
     ".themes/numix-solarized-dark" = gtkSolarized;
     ".local/share/applications/keybase.desktop".content = mkDesktop "Keybase" "env NIX_SKIP_KEYBASE_CHECKS=1 ${pkgs.keybase-gui}/bin/keybase-gui";
+    ".local/share/applications/wtf.desktop".content = mkDesktop "Keybase" "kitty env TERM=xterm-256color /home/${user}/.go/bin/wtf";
+    ".config/wtf/config.yml" = "${dotfiles}/wtf.yml";
     ".config/fish/conf.d/go.fish" = writeFishScript "go.fish" ''
       set -x GOPATH $HOME/.go
       set -x PATH $PATH $GOPATH/bin

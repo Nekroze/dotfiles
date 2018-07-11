@@ -20,6 +20,7 @@
 * [tmux](http://tmux.github.io/)
 * [multitail](http://www.vanheusden.com/multitail/)
 * [oni](https://www.onivim.io) (Due to an [issue with oni](https://github.com/onivim/oni/issues/2087) you need to use oni to edit the config and save with `:w!` before config changes are applied))
+* [wtf](https://wtfutil.com)
 
 # Usage
 
