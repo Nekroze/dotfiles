@@ -24,6 +24,7 @@ let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+set hidden
 
 Plug '907th/vim-auto-save'
 let auto_save = 1
