@@ -43,6 +43,8 @@ if executable('go')
 	endif
 endif
 
+Plug 'b4b4r07/vim-hcl'
+
 Plug 'edkolev/promptline.vim'
 Plug 'sjl/gundo.vim'
 Plug 'townk/vim-autoclose'
