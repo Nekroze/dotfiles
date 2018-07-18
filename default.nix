@@ -54,6 +54,16 @@ let
     rev = "1b8a45b84025af571ccdeb813e78d40af739866d";
     sha256 = "18gk4zxxv31mkay1lj48cwm0zxz64vmw0c4183j46sdgq7qxija0";
   };
+  zshSyntaxHighlighting = fetchgit {
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git";
+    rev = "db6cac391bee957c20ff3175b2f03c4817253e60";
+    sha256 = "1q2cq6lymbrznzmd6klrikybay6r99cwd4f83x1mkn9qvk17zn4c";
+  };
+  zshAutoSuggestions = fetchgit {
+    url = "https://github.com/zsh-users/zsh-autosuggestions.git";
+    rev = "ebaf409002be498a681267a75f5efcaf45cd0ccc";
+    sha256 = "0a9xvabikndac2j29rppwzhsxgzsp40c0wsvh444j71p3xb1qrs6";
+  };
   gtkSolarized = ((pkgs.callPackage ./.config/dotfiles/numix-solarized.nix) { });
   dotfiles = ./.config/dotfiles;
   mkDesktop = name: exec: ''
@@ -103,6 +113,8 @@ in mkHome rec {
     '' + builtins.readFile "${termiteSolarized}/solarized-dark";
 
     ".local/share/oh-my-zsh/themes/spaceship.zsh-theme" = "${spaceship}/spaceship.zsh-theme";
+    ".local/share/oh-my-zsh/plugins/zsh-syntax-highlighting" = zshSyntaxHighlighting;
+    ".local/share/oh-my-zsh/plugins/zsh-autosuggestions" = zshAutoSuggestions;
     ".zshrc".content = ''
       export DEFAULT_USER=${user}
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
@@ -120,6 +132,8 @@ in mkHome rec {
         history-substring-search
         vi-like
         vi-mode
+        zsh-autosuggestions
+        zsh-syntax-highlighting
       )
       source $ZSH/oh-my-zsh.sh
       ${optionalString (zshTheme == "agnoster") "RPROMPT="}
