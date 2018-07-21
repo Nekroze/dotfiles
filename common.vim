@@ -45,7 +45,6 @@ endif
 
 Plug 'b4b4r07/vim-hcl'
 
-Plug 'edkolev/promptline.vim'
 Plug 'sjl/gundo.vim'
 Plug 'townk/vim-autoclose'
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -63,7 +62,6 @@ if !exists('g:gui_oni') " neovim/vim without oni can also use LSP
 	Plug 'prabirshrestha/async.vim'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
-	Plug 'yami-beta/asyncomplete-omni.vim'
 
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -128,48 +126,27 @@ else
 	catch /^Vim\%((\a\+)\)\=:E185/
 	endtry
 
-	try
-		call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-		\ 'name': 'omni',
-		\ 'whitelist': ['*'],
-		\ 'blacklist': [],
-		\ 'completor': function('asyncomplete#sources#omni#completor')
-		\  }))
-	catch /^Vim\%((\a\+)\)\=:E185/
-	endtry
+	"try
+	"	call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+	"	\ 'name': 'omni',
+	"	\ 'whitelist': ['*'],
+	"	\ 'blacklist': [],
+	"	\ 'completor': function('asyncomplete#sources#omni#completor')
+	"	\  }))
+	"catch /^Vim\%((\a\+)\)\=:E185/
+	"endtry
 endif
 " Always use system clipboard
 set clipboard+=unnamedplus
 
-" Window split settings
 highlight TermCursor ctermfg=red guifg=red
+
+" Window split settings
 set splitbelow
 set splitright
 
 " Terminal settings
 tnoremap <Leader><ESC> <C-\><C-n>
-
-" Window navigation function
-" Make ctrl-h/j/k/l move between windows and auto-insert in terminals
-func! s:mapMoveToWindowInDirection(direction)
-    func! s:maybeInsertMode(direction)
-        stopinsert
-        execute "wincmd" a:direction
-
-        if &buftype == 'terminal'
-            startinsert!
-        endif
-    endfunc
-
-    execute "tnoremap" "<silent>" "<C-" . a:direction . ">"
-                \ "<C-\\><C-n>"
-                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
-    execute "nnoremap" "<silent>" "<C-" . a:direction . ">"
-                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
-endfunc
-for dir in ["h", "j", "l", "k"]
-    call s:mapMoveToWindowInDirection(dir)
-endfor
 
 set tabstop=4 shiftwidth=4
 
