@@ -64,6 +64,32 @@ let
     rev = "ebaf409002be498a681267a75f5efcaf45cd0ccc";
     sha256 = "0a9xvabikndac2j29rppwzhsxgzsp40c0wsvh444j71p3xb1qrs6";
   };
+  zshExplainShell = fetchgit {
+    url = "git://github.com/gmatheu/zsh-explain-shell.git";
+    rev = "f308812830fc20d76c54f3f13b8aba6eaa6e5a45";
+    sha256 = "109m728263wsmffnn5xmzcxc8m1b64vr3skbd6x8ci8yfjqbdscd";
+  };
+  zshInteractiveCD = fetchgit {
+    url = "https://github.com/changyuheng/zsh-interactive-cd.git";
+    rev = "cded98f0ba28266722112e3ab43f97117a632090";
+    sha256 = "13h04axpilp6x1bvgxkbbz9kd8j6plx1gww4day543ic47lwi8rf";
+  };
+  shMarkEdit = fetchgit {
+    url = "https://github.com/zakariaGatter/MarkEdit.git";
+    rev = "c3ea86d12c84e689dc4d6aacfa95f4eb54bdb60f";
+    sha256 = "1r57x4v4fc8k2b1la7p2la5l6haa1zlf1gpz37aj03g4lvp2aw6j";
+  };
+  zshNixShell = fetchgit {
+    url = "https://github.com/chisui/zsh-nix-shell.git";
+    rev = "ac820013566f5f68d94b45c3c893cc478a245800";
+    sha256 = "06pcf6sn92ydhssli4fixks2ppps8qvfi0a5ny40sgncrjwyx5nj";
+  };
+  zshSolarizedMan = fetchgit {
+    url = "https://github.com/zlsun/solarized-man.git";
+    rev = "a902b64696271efee95f37d45589078fdfbbddc5";
+    sha256 = "04gm4qm17s49s6h9klbifgilxv8i45sz3rg521dwm599gl3fgmnv";
+  };
+
   gtkSolarized = ((pkgs.callPackage ./.config/dotfiles/numix-solarized.nix) { });
   dotfiles = ./.config/dotfiles;
   mkDesktop = name: exec: ''
@@ -115,7 +141,12 @@ in mkHome rec {
     ".local/share/oh-my-zsh/themes/spaceship.zsh-theme" = "${spaceship}/spaceship.zsh-theme";
     ".local/share/oh-my-zsh/plugins/zsh-syntax-highlighting" = zshSyntaxHighlighting;
     ".local/share/oh-my-zsh/plugins/zsh-autosuggestions" = zshAutoSuggestions;
+    ".local/share/oh-my-zsh/plugins/zsh-explain-shell" = "${zshExplainShell}/explain-shell";
+    ".local/share/oh-my-zsh/plugins/zsh-interactive-cd" = zshInteractiveCD;
+    ".local/share/oh-my-zsh/plugins/nix-shell" = zshNixShell;
+    ".local/share/oh-my-zsh/plugins/solarized-man" = zshSolarizedMan;
     ".zshrc".content = ''
+      source ${shMarkEdit}/markedit.sh
       export DEFAULT_USER=${user}
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       export ZSH_CUSTOM="$HOME/.local/share/oh-my-zsh/"
@@ -134,7 +165,9 @@ in mkHome rec {
         vi-mode
         zsh-autosuggestions
         zsh-syntax-highlighting
-        colored-man-pages
+        zsh-explain-shell
+        zsh-interactive-cd
+        solarized-man
       )
       source $ZSH/oh-my-zsh.sh
       ${optionalString (zshTheme == "agnoster") "RPROMPT="}

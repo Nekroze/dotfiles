@@ -4,6 +4,7 @@
 [core]
 	editor = nvim
     excludesfile = /home/taylorl/.gitignore
+	pager = diff-so-fancy | less -FXRi
 [diff]
 	tool = vimdiff
 [difftool]
