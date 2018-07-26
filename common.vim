@@ -26,9 +26,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 set hidden
 
-Plug '907th/vim-auto-save'
-let auto_save = 1
-
 Plug 'vim-syntastic/syntastic'
 let g:syntastic_check_on_open = 1
 let g:syntastic_always_populate_loc_list = 1
