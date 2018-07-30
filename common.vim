@@ -196,4 +196,9 @@ if !exists('g:gui_oni') && executable('dapper')
 				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dapper lsp-dockerfile']},
 				\ 'whitelist': ['dockerfile'],
 				\ })
+	au user lsp_setup call lsp#register_server({
+				\ 'name': 'dart',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dapper lsp-dart']},
+				\ 'whitelist': ['dart'],
+				\ })
 endif
