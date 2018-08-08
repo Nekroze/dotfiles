@@ -253,7 +253,7 @@ in mkHome rec {
       Guifont ${preferedFont}:h9
     '';
     ".local/share/nvim/site/autoload/plug.vim" = "${vimPlug}/plug.vim";
-    ".config/i3status/config" = "${dotfiles}/i3status";
+    ".config/i3status/config" = "${dotfiles}/i3status.${variant}";
     ".config/i3/config" = "${dotfiles}/i3.config";
     ".config/vifm/vifmrc".content = ''
       colorscheme ${vifmTheme}
