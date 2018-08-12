@@ -202,3 +202,7 @@ if !exists('g:gui_oni') && executable('dapper')
 				\ 'whitelist': ['dart'],
 				\ })
 endif
+
+autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal spell
+set complete+=kspell
