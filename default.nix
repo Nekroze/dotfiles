@@ -350,7 +350,11 @@ in mkHome rec {
           "editor.formatting.formatOnSwitchToNormalMode": true,
           "workspace.autoDetectWorkspace": "always",
           "sidebar.default.open": false,
-          "experimental.markdownPreview.enabled": true,
+          "experimental.markdownPreview.enabled": false,
+          "tabs.mode": "buffers",
+          "tabs.showIndex": "true",
+          "tabs.showFileIcon": "false",
+          "editor.scrollBar.visible": "false",
       };
     '';
     ".npmrc".content = ''
