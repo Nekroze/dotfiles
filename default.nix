@@ -311,6 +311,7 @@ in mkHome rec {
       export const configuration = {
           'ui.colorscheme': 'solarized8_dark',
           'editor.fontFamily': "'Fira Code', FiraCode, Fira-Code",
+          'ui.fontFamily': "'Fira Code', FiraCode, Fira-Code",
           'oni.loadInitVim': true,
           'oni.hideMenu': true,
           'oni.plugins.prettier': {
