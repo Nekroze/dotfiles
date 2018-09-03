@@ -228,6 +228,16 @@ in mkHome rec {
       alias lt="${pkgs.exa}/bin/exa -lT"
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
       source "${dotfiles}/powerline-go.zsh"
+      command -v bat >/dev/null 2>&1 && alias cat=bat
+      export BAT_THEME="Monokai Extended"
+      command -v ncdu >/dev/null 2>&1 && alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+      command -v tldr >/dev/null 2>&1 && alias man="tldr"
+      source ${pkgs.fzf}/share/fzf/completion.zsh
+      source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+    '';
+    ".ackrc".content = ''
+      --type-set=md=.md,.mkd,.markdown
+      --pager=less -FRX
     '';
     ".Xresources".content = ''
       rofi.color-enabled:     true
