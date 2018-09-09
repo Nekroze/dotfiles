@@ -1,0 +1,30 @@
+set theme dark
+
+set searchengine duckduckgo
+
+set hintnames short
+" Vimperator-style hints
+set hintfiltermode vimperator-reflow
+
+" Make Tridactyl work on more sites at the expense of some security
+set csp clobber
+fixamo
+
+" Sanity before custom bindings
+reset all
+
+" Change between tabs
+bind l tabnext_gt
+bind h tabprev
+
+" Scroll by half page
+bind j scrollpage 0.5
+bind k scrollpage -0.5
+
+" Scroll slowly
+bind J scrollline 5
+bind K scrollline -5
+
+" Relocate tabs
+bind <c-l> tabmove +1
+bind <c-h> tabmove -1

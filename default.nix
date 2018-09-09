@@ -432,5 +432,6 @@ in mkHome rec {
         }
       }
     '';
+    ".config/tridactyl/tridactylrc" = "${dotfiles}/tridactylrc";
   };
 }
