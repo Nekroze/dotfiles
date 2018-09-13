@@ -366,6 +366,7 @@ in mkHome rec {
           "tabs.showIndex": "true",
           "tabs.showFileIcon": "false",
           "editor.scrollBar.visible": "false",
+          "terminal.shellCommand": "zsh",
       };
     '';
     ".npmrc".content = ''
