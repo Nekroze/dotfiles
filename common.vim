@@ -41,6 +41,7 @@ if executable('go')
 endif
 
 Plug 'b4b4r07/vim-hcl'
+Plug 'kristijanhusak/vim-carbon-now-sh'
 
 Plug 'sjl/gundo.vim'
 Plug 'townk/vim-autoclose'
