@@ -1,6 +1,8 @@
 {
+  variant ? "laptop",
   username ? "nekroze",
-  variant ? "laptop"
+  name ? ''Taylor "Nekroze" Lawson'',
+  email ? "nekroze.lawson@gmail.com"
 }:
 with import <nixpkgs> {};
 with import <nixhome> { inherit stdenv; inherit pkgs; };
@@ -275,8 +277,6 @@ in mkHome rec {
         source ~/.vimrc.local
       endif
     '';
-    ".gitconfig" = "${dotfiles}/gitconfig";
-    ".gitignore" = "${dotfiles}/gitignore";
     ".tmux.conf" = "${dotfiles}/tmux.conf";
     ".multitailrc" = "${dotfiles}/multitailrc";
     ".elvish/rc.elv" = "${dotfiles}/rc.elv";
@@ -434,5 +434,23 @@ in mkHome rec {
       }
     '';
     ".config/tridactyl/tridactylrc" = "${dotfiles}/tridactylrc";
+    ".gitignore" = "${dotfiles}/gitignore";
+    ".gitconfig".content = ''
+      [user]
+          name = ${name}
+          email = ${email}
+      [core]
+          editor = nvim
+          excludesfile = /home/${username}/.gitignore
+          pager = diff-so-fancy | less -FXRi
+      [diff]
+          tool = vimdiff
+      [difftool]
+          prompt = false
+      [alias]
+          lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+      [include]
+          path = /home/${username}/.local.gitconfig
+    '';
   };
 }
