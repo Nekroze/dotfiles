@@ -10,6 +10,7 @@ else
 	Plug 'altercation/vim-colors-solarized'
 endif
 
+Plug 'RRethy/vim-illuminate'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
