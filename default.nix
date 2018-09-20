@@ -224,9 +224,9 @@ in mkHome rec {
       mkdir -p $WORKON_HOME
       [ "$IN_NIX_SHELL" ] && export PS1="nix-shell@$PS1"
       alias ls="${pkgs.exa}/bin/exa"
-      alias ll="${pkgs.exa}/bin/exa -l"
-      alias la="${pkgs.exa}/bin/exa -la"
-      alias lx="${pkgs.exa}/bin/exa -bghHliS"
+      alias ll="${pkgs.exa}/bin/exa -l --git"
+      alias la="${pkgs.exa}/bin/exa -la --git"
+      alias lx="${pkgs.exa}/bin/exa -bghHliS --git"
       alias lt="${pkgs.exa}/bin/exa -lT"
       export PATH="$PATH:/home/${user}/.npm-packages/bin"
       source "${dotfiles}/powerline-go.zsh"
