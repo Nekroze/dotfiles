@@ -12,6 +12,7 @@ endif
 
 Plug 'chrisbra/Colorizer'
 Plug 'RRethy/vim-illuminate'
+Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
