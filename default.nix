@@ -154,6 +154,7 @@ in mkHome rec {
       export ZSH_CUSTOM="$HOME/.local/share/oh-my-zsh/"
       ZSH_THEME="${zshTheme}"
       plugins=(
+        dotenv
         common-aliases
         ssh-agent
         gitfast
